@@ -27,7 +27,7 @@ gtag('config', 'AW-16867417010');
 <!-- Open Graph -->
 <meta property="og:title" content="Konveksi Bandung Cimahi | Daff Studio Creative">
 <meta property="og:description" content="Konveksi Bandung Cimahi: Seragam, Kaos, Batik, Hijab, dan Pakaian Custom Berkualitas.">
-<meta property="og:image" content="https://namadomain.com/images/brand.png">
+<meta property="og:image" content="https://namadomain.com/images/brand.png" loading="lazy">
 <meta property="og:url" content="https://namadomain.com">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -37,11 +37,11 @@ gtag('config', 'AW-16867417010');
 
 
 <!-- bootstrap core css -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="preload" href="css/bootstrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet" />
-<link href="css/responsive.css" rel="stylesheet" />
+<link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
 
 
 <!-- JSON-LD Schema -->
@@ -557,7 +557,7 @@ gtag('config', 'AW-16867417010');
       <div class="col-md-3 mb-4">
         <div class="box shadow-lg p-4 bg-white text-dark rounded-lg h-100">
           <div class="img-box mb-3 text-center">
-            <img src="images/bat.webp" alt="Batik Custom Icon" width="70">
+            <img src="images/bat.webp" alt="Batik Custom Icon" width="70" loading="lazy">
           </div>
           <div class="detail-box text-center">
             <h6 class="fw-bold text-gold">Batik Custom</h6>
@@ -574,7 +574,7 @@ gtag('config', 'AW-16867417010');
       <div class="col-md-3 mb-4">
         <div class="box shadow-lg p-4 bg-white text-dark rounded-lg h-100">
           <div class="img-box mb-3 text-center">
-            <img src="images/das.webp" alt="Batik Custom Icon" width="70">
+            <img src="images/das.webp" alt="Batik Custom Icon" width="70" loading="lazy">
           </div>
           <div class="detail-box text-center">
             <h6 class="fw-bold text-gold">Daster Custom</h6>
@@ -591,7 +591,7 @@ gtag('config', 'AW-16867417010');
       <div class="col-md-3 mb-4">
         <div class="box shadow-lg p-4 bg-white text-dark rounded-lg h-100">
           <div class="img-box mb-3 text-center">
-           <img src="images/hij.webp" alt="Batik Custom Icon" width="70">
+           <img src="images/hij.webp" alt="Batik Custom Icon" width="70" loading="lazy">
           </div>
           <div class="detail-box text-center">
             <h6 class="fw-bold text-gold">Hijab Custom</h6>
@@ -608,7 +608,7 @@ gtag('config', 'AW-16867417010');
       <div class="col-md-3 mb-4">
         <div class="box shadow-lg p-4 bg-white text-dark rounded-lg h-100">
           <div class="img-box mb-3 text-center">
-            <img src="images/kas.png" alt="Batik Custom Icon" width="70">
+            <img src="images/kas.png" alt="Batik Custom Icon" width="70" loading="lazy">
           </div>
           <div class="detail-box text-center">
             <h6 class="fw-bold text-gold">Pakaian Custom</h6>
@@ -840,9 +840,10 @@ gtag('config', 'AW-16867417010');
   </footer>
   <!-- footer section -->
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/custom.js"></script>
+<script src="js/jquery-3.4.1.min.js" defer></script>
+<script src="js/bootstrap.js" defer></script>
+<script src="js/custom.js" defer></script>
+
    <script>
   // Hover effect untuk animasi tombol
   const waButton = document.querySelector('a[href*="wa.me"]');

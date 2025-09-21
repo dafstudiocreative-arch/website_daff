@@ -1,4 +1,10 @@
 @import url("font-awesome.min.css");
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('.../fontawesome-webfont.woff2') format('woff2');
+  font-display: swap;
+}
+
 body {
   font-family: "Poppins", sans-serif;
   color: #0c0c0c;
