@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://namadomain.com/</loc>
+    <loc>https://daffdesain.store/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://namadomain.com/katalog_produk.php</loc>
+    <loc>https://daffdesain.store/kerudung.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://daffdesain.store/daster.html</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://namadomain.com/layanan.php</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://namadomain.com/tentang_kami.php</loc>
+    <loc>https://daffdesain.store/batik.html</loc>
     <priority>0.7</priority>
   </url>
 </urlset>
