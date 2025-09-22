@@ -139,8 +139,10 @@
 
 <script>
   const produkContainer = document.getElementById("produk-container");
+  const previewImage = document.getElementById("previewImage");
+  const previewTitle = document.getElementById("previewTitle");
 
-  // Buat array gambar otomatis dari kerudung/1.webp sampai kerudung/100.webp
+  // Array gambar otomatis dari kerudung/1.webp sampai kerudung/100.webp
   const images = [];
   for (let i = 1; i <= 100; i++) {
     images.push(`kerudung/${i}.webp`);
@@ -151,13 +153,15 @@
   for (let i = 1; i <= totalCards; i++) {
     let tipe = "Da-" + (1000 + i);
     let img = images[i - 1];
-    let isSold = true; // semua produk otomatis SOLD OUT
 
     let card = `
       <div class="col-lg-3 col-md-4 col-sm-6">
         <article class="card produk-card h-100 text-center position-relative" itemscope itemtype="https://schema.org/Product">
           <div class="position-relative">
-            <img src="${img}" alt="Kerudung Custom ${tipe} - DAFF Studio Creative" itemprop="image">
+            <img src="${img}" alt="Kerudung Custom ${tipe} - DAFF Studio Creative" 
+                 itemprop="image" 
+                 onclick="showPreview('${img}', '${tipe}')"
+                 style="cursor:pointer;">
             <div class="sold-overlay">SOLD OUT</div>
           </div>
           <div class="card-body">
@@ -176,6 +180,14 @@
       </div>
     `;
     produkContainer.innerHTML += card;
+  }
+
+  // Fungsi preview modal
+  function showPreview(src, tipe) {
+    previewImage.src = src;
+    previewTitle.textContent = "Kerudung Custom " + tipe;
+    const modal = new bootstrap.Modal(document.getElementById('previewModal'));
+    modal.show();
   }
 </script>
 
