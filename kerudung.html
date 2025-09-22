@@ -139,8 +139,6 @@
 
 <script>
   const produkContainer = document.getElementById("produk-container");
-  const previewImage = document.getElementById("previewImage");
-  const previewTitle = document.getElementById("previewTitle");
 
   // Buat array gambar otomatis dari kerudung/1.webp sampai kerudung/100.webp
   const images = [];
@@ -153,13 +151,15 @@
   for (let i = 1; i <= totalCards; i++) {
     let tipe = "Da-" + (1000 + i);
     let img = images[i - 1];
-    let isSold = true; // semua produk otomatis sold
+    let isSold = true; // semua produk otomatis SOLD OUT
 
     let card = `
       <div class="col-lg-3 col-md-4 col-sm-6">
         <article class="card produk-card h-100 text-center position-relative" itemscope itemtype="https://schema.org/Product">
-          <img src="${img}" alt="Kerudung Custom ${tipe} - DAFF Studio Creative" itemprop="image">
-          ${isSold ? `<div class="sold-overlay">SOLD OUT</div>` : ""}
+          <div class="position-relative">
+            <img src="${img}" alt="Kerudung Custom ${tipe} - DAFF Studio Creative" itemprop="image">
+            <div class="sold-overlay">SOLD OUT</div>
+          </div>
           <div class="card-body">
             <h2 class="card-title h6" itemprop="name">Kerudung Custom Tipe ${tipe}</h2>
             <button class="btn btn-secondary w-100" disabled>Sudah Terjual</button>
@@ -177,8 +177,6 @@
     `;
     produkContainer.innerHTML += card;
   }
-
-  // (Opsional) Jika semua sold, modal preview tidak dipakai
 </script>
 
 <style>
@@ -192,8 +190,10 @@
     padding: 5px 12px;
     border-radius: 8px;
     font-size: 0.9rem;
+    text-transform: uppercase;
   }
 </style>
+
 
 
 
