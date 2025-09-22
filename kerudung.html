@@ -136,7 +136,6 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
   const produkContainer = document.getElementById("produk-container");
   const previewImage = document.getElementById("previewImage");
@@ -153,7 +152,8 @@
   newProducts.forEach(prod => {
     let card = `
       <div class="col-lg-3 col-md-4 col-sm-6">
-        <article class="card produk-card h-100 text-center position-relative" itemscope itemtype="https://schema.org/Product">
+        <article class="card produk-card h-100 text-center position-relative" 
+                 itemscope itemtype="https://schema.org/Product">
           <div class="position-relative">
             <img src="${prod.img}" alt="Kerudung Custom ${prod.tipe} - DAFF Studio Creative" 
                  itemprop="image" 
@@ -175,6 +175,14 @@
               Rp200.000/desain<br>
               Ready Design per pack (isi 5 warna)
             </div>
+
+            <!-- schema.org offers untuk produk tersedia -->
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="IDR" />
+              <meta itemprop="price" content="350000" />
+              <link itemprop="availability" href="https://schema.org/InStock" />
+              <meta itemprop="url" content="https://wa.me/${waNumber}" />
+            </div>
           </div>
         </article>
       </div>
@@ -195,7 +203,8 @@
 
     let card = `
       <div class="col-lg-3 col-md-4 col-sm-6">
-        <article class="card produk-card h-100 text-center position-relative" itemscope itemtype="https://schema.org/Product">
+        <article class="card produk-card h-100 text-center position-relative" 
+                 itemscope itemtype="https://schema.org/Product">
           <div class="position-relative">
             <img src="${img}" alt="Kerudung Custom ${tipe} - DAFF Studio Creative" 
                  itemprop="image" 
@@ -214,6 +223,14 @@
               Rp200.000/desain<br>
               Ready Design per pack (isi 5 warna)
             </div>
+
+            <!-- schema.org offers untuk produk SOLD OUT -->
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="IDR" />
+              <meta itemprop="price" content="350000" />
+              <link itemprop="availability" href="https://schema.org/OutOfStock" />
+              <meta itemprop="url" content="https://daffdesain.store/kerudung.html" />
+            </div>
           </div>
         </article>
       </div>
@@ -229,6 +246,7 @@
     modal.show();
   }
 </script>
+
 
 
 <style>
