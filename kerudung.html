@@ -142,14 +142,53 @@
   const previewImage = document.getElementById("previewImage");
   const previewTitle = document.getElementById("previewTitle");
 
-  // Array gambar otomatis dari kerudung/1.webp sampai kerudung/100.webp
+  const waNumber = "62895401071376"; // nomor WA
+
+  // --- Tambah 2 produk baru di paling atas (BAR series) ---
+  const newProducts = [
+    { tipe: "Bar-1", img: "kerudung/bar1.webp" },
+    { tipe: "Bar-2", img: "kerudung/bar2.webp" }
+  ];
+
+  newProducts.forEach(prod => {
+    let card = `
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <article class="card produk-card h-100 text-center position-relative" itemscope itemtype="https://schema.org/Product">
+          <div class="position-relative">
+            <img src="${prod.img}" alt="Kerudung Custom ${prod.tipe} - DAFF Studio Creative" 
+                 itemprop="image" 
+                 onclick="showPreview('${prod.img}', '${prod.tipe}')"
+                 style="cursor:pointer;">
+          </div>
+          <div class="card-body">
+            <h2 class="card-title h6" itemprop="name">Kerudung Custom Tipe ${prod.tipe}</h2>
+            <a target="_blank" 
+               href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kerudung%20Custom%20Tipe%20${prod.tipe}" 
+               class="btn-wa">
+              <i class="bi bi-whatsapp"></i> Pesan Langsung
+            </a>
+            <div class="custom-box mt-3" itemprop="description">
+              <strong>Custom Design</strong>
+              Harga final sesuai konsep.<br>
+              Tambah seri warna Rp35.000/warna<br>
+              Rp350.000 - Rp600.000<br>
+              Rp200.000/desain<br>
+              Ready Design per pack (isi 5 warna)
+            </div>
+          </div>
+        </article>
+      </div>
+    `;
+    produkContainer.innerHTML += card;
+  });
+
+  // --- Loop produk lama (semua SOLD OUT) ---
   const images = [];
   for (let i = 1; i <= 100; i++) {
     images.push(`kerudung/${i}.webp`);
   }
 
   const totalCards = 100;
-
   for (let i = 1; i <= totalCards; i++) {
     let tipe = "Da-" + (1000 + i);
     let img = images[i - 1];
@@ -190,6 +229,7 @@
     modal.show();
   }
 </script>
+
 
 <style>
   .sold-overlay {
