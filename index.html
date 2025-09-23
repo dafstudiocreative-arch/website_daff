@@ -37,6 +37,8 @@ gtag('config', 'AW-16867417010');
 <!-- Favicon -->
 <link rel="shortcut icon" href="images/brand.png" type="image/x-icon">
 
+<!-- Preload LCP Image -->
+<link rel="preload" as="image" href="images/logopak.webp" fetchpriority="high">
 
 <!-- bootstrap core css -->
 <link rel="preload" href="css/bootstrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -262,36 +264,43 @@ gtag('config', 'AW-16867417010');
 
   <!-- about section -->
 
-  <section class="about_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 px-0">
-          <div class="img_container">
-            <div class="img-box">
-              <img src="images/logopak.webp" alt="Logo Daff Studio Creative Bandung Cimahi" loading="lazy" />
-            </div>
+<section class="about_section layout_padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 px-0">
+        <div class="img_container">
+          <div class="img-box">
+            <img src="images/logopak.webp" 
+                 alt="Logo Daff Studio Creative Bandung Cimahi" 
+                 width="600" height="400"
+                 fetchpriority="high" 
+                 decoding="async" 
+                 style="max-width:100%; height:auto;">
           </div>
         </div>
-        <div class="col-md-6 px-0">
-          <div class="detail-box">
-            <div class="heading_container ">
-              <h2>
-                Siapa Kami?
-              </h2>
-            </div>
-            <p>
-          DAFF Studio Creative berawal dari passion di bidang desain grafis dan konveksi. Kami tidak hanya menciptakan desain visual yang menarik, tetapi juga menghadirkannya dalam bentuk nyata melalui produk pakaian berkualitas. Dengan tim berpengalaman, kami mengutamakan ketelitian, kreativitas, serta kepuasan pelanggan dalam setiap karya.
-            </p>
-            <div class="btn-box">
-              <a href="" style="color: black;">
-                Read More
-              </a>
-            </div>
+      </div>
+      <div class="col-md-6 px-0">
+        <div class="detail-box">
+          <div class="heading_container">
+            <h2>Siapa Kami?</h2>
+          </div>
+          <p>
+            Daff Studio Creative berawal dari passion di bidang desain grafis dan konveksi. 
+            Kami tidak hanya menciptakan desain visual yang menarik, tetapi juga menghadirkannya 
+            dalam bentuk nyata melalui produk pakaian berkualitas. Dengan tim berpengalaman, 
+            kami mengutamakan ketelitian, kreativitas, serta kepuasan pelanggan dalam setiap karya.
+          </p>
+          <div class="btn-box">
+            <a href="" style="color: black;">
+              Read More
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 <!-- Video Section -->
 <!-- Tambahkan CSS Swiper -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
