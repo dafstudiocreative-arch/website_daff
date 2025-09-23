@@ -39,15 +39,20 @@ gtag('config', 'AW-16867417010');
 
 <!-- Preload LCP Image -->
 <link rel="preload" as="image" href="images/logopak.webp" fetchpriority="high">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</noscript>
+
 
 
 <!-- bootstrap core css -->
 <link rel="preload" href="css/bootstrap.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></noscript>
 <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
 
@@ -90,9 +95,10 @@ gtag('config', 'AW-16867417010');
   <div class="img-box">
 
     <div class="hero-video-container">
-  <video autoplay muted loop playsinline poster="images/vid4-poster.webp">
+<video autoplay muted loop playsinline poster="images/vid4-poster.webp" fetchpriority="high">
   <source src="images/vid4.mp4" type="video/mp4">
 </video>
+
 
 </div>
 
