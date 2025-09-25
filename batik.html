@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Batik Custom Bandung Cimahi - Murah & Elegan | DAFF Studio Creative</title>
+  <meta name="description" content="Katalog batik custom Bandung Cimahi dari DAFF Studio Creative. Tersedia koleksi batik elegan dengan bahan premium, harga terjangkau, bisa custom & pesan via WhatsApp.">
+  <meta name="keywords" content="batik custom Bandung, batik Cimahi, batik elegan murah, katalog batik premium, batik modern, batik untuk acara, batik komunitas, batik couple, batik handmade">
+  <meta name="author" content="DAFF Studio Creative">
+
+  <!-- Open Graph SEO -->
+  <meta property="og:title" content="Katalog Batik Custom - DAFF Studio Creative">
+  <meta property="og:description" content="Temukan koleksi batik custom elegan dari DAFF Studio Creative. Bisa pesan langsung via WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="batik/1.webp">
+  <meta property="og:url" content="https://daffdesain.store/batik.html">
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="shortcut icon" href="images/brand.png" type="image/x-icon">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      font-family: 'Poppins', sans-serif;
+    }
+    .produk-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+    }
+    .produk-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .produk-card img {
+      height: 220px;
+      object-fit: cover;
+      width: 100%;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .produk-card img:hover {
+      transform: scale(1.05);
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .btn-wa i {
+      margin-right: 6px;
+      font-size: 1.1rem;
+    }
+    .btn-wa:hover {
+      background: #1ebe5b;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .custom-box {
+      margin-top: 15px;
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    .custom-box strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    .custom-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .modal-img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header class="py-5 text-center">
+    <div class="container">
+      <a href="index.html" class="btn-home">
+        <i class="bi bi-house-door-fill"></i>
+      </a>
+      <style>
+        .btn-home {
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          background: #222;
+          color: #fff;
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.3rem;
+          font-weight: bold;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+          transition: all 0.3s ease;
+          z-index: 1050;
+        }
+        .btn-home:hover {
+          background: #444;
+          transform: scale(1.1);
+        }
+      </style>
+      <h1 class="fw-bold">🧵 Katalog Batik Custom DAFF Studio Creative</h1>
+      <p class="mt-3 text-muted">Temukan <strong>batik custom elegan</strong> dengan kualitas terbaik.  
+        Cocok untuk acara formal, komunitas, hingga sehari-hari.</p>
+    </div>
+  </header>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4" id="produk-container">
+        <!-- Card akan digenerate oleh JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Preview -->
+  <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-body text-center p-0">
+          <img id="previewImage" src="" alt="Preview Batik" class="modal-img">
+          <h5 class="text-white mt-3" id="previewTitle"></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 DAFF Studio Creative | Katalog Batik Custom Bandung & Cimahi</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const produkContainer = document.getElementById("produk-container");
+    const previewImage = document.getElementById("previewImage");
+    const previewTitle = document.getElementById("previewTitle");
+
+    const waNumber = "62895401071376"; // nomor WA
+
+    // --- 5 Produk Batik Custom ---
+    const batikProducts = [];
+    for (let i = 1; i <= 5; i++) {
+      batikProducts.push({ tipe: "Batik-" + i, img: `batik/${i}.webp` });
+    }
+
+    batikProducts.forEach(prod => {
+      let card = `
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <article class="card produk-card h-100 text-center position-relative" 
+                   itemscope itemtype="https://schema.org/Product">
+            <div class="position-relative">
+              <img src="${prod.img}" alt="Batik Custom ${prod.tipe} - DAFF Studio Creative" 
+                   itemprop="image" 
+                   onclick="showPreview('${prod.img}', '${prod.tipe}')"
+                   style="cursor:pointer;">
+            </div>
+            <div class="card-body">
+              <h2 class="card-title h6" itemprop="name">Batik Custom Tipe ${prod.tipe}</h2>
+              <a target="_blank" 
+                 href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Batik%20Custom%20Tipe%20${prod.tipe}" 
+                 class="btn-wa">
+                <i class="bi bi-whatsapp"></i> Pesan Langsung
+              </a>
+              <div class="custom-box mt-3" itemprop="description">
+                <strong>Desain Eksklusif</strong>
+                <ul>
+                  <li>1 desain eksklusif</li>
+                  <li>Jasa separasi (pisah warna) batik untuk hasil warna presisi</li>
+                  <li>Siap cetak produksi</li>
+                  <li>Mendukung berbagai varian warna</li>
+                  <li>Termasuk revisi hingga sesuai kebutuhan</li>
+                </ul>
+                <p><strong>Harga: Rp 600.000/desain</strong></p>
+              </div>
+              <!-- schema.org offers -->
+              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="IDR" />
+                <meta itemprop="price" content="600000" />
+                <link itemprop="availability" href="https://schema.org/InStock" />
+                <meta itemprop="url" content="https://wa.me/${waNumber}" />
+              </div>
+            </div>
+          </article>
+        </div>
+      `;
+      produkContainer.innerHTML += card;
+    });
+
+    // Fungsi preview modal
+    function showPreview(src, tipe) {
+      previewImage.src = src;
+      previewTitle.textContent = "Batik Custom " + tipe;
+      const modal = new bootstrap.Modal(document.getElementById('previewModal'));
+      modal.show();
+    }
+  </script>
+
+  <!-- Schema.org Structured Data (SEO Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "ProductCollection",
+    "name": "Katalog Batik Custom DAFF Studio Creative",
+    "description": "Koleksi batik custom eksklusif dengan jasa separasi warna, hasil presisi, siap cetak produksi, mendukung berbagai varian warna, dan termasuk revisi sesuai kebutuhan. Harga Rp 600.000/desain.",
+    "url": "https://daffdesain.store/batik.html",
+    "brand": {
+      "@type": "Brand",
+      "name": "DAFF Studio Creative"
+    },
+    "productGroupID": "batik-custom",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Batik Custom",
+      "itemListElement": [
+        {
+          "@type": "Product",
+          "name": "Batik Custom DAFF Studio Creative",
+          "image": "https://daffdesain.store/batik/1.webp",
+          "description": "1 desain eksklusif, jasa separasi warna presisi, siap cetak produksi, mendukung varian warna, revisi hingga sesuai kebutuhan. Harga Rp 600.000/desain.",
+          "brand": "DAFF Studio Creative",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://wa.me/62895401071376",
+            "priceCurrency": "IDR",
+            "price": "600000",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+</body>
+</html>
