@@ -305,12 +305,14 @@ gtag('config', 'AW-16867417010');
 <!-- Tambahkan CSS Swiper -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-<section class="katalog_section layout_padding bg-light">
+<section class="katalog_section layout_padding bg-dark text-white">
   <div class="container">
     <div class="heading_container text-center mb-5">
-      <h2>Katalog Produk</h2>
-      <p class="mt-2 mb-4 text-muted">
-        Temukan berbagai produk dari DAFF Studio Creative. Mulai dari kaos komunitas, batik, daster, hingga pakaian seragam sekolah. Semua produk dibuat dengan bahan pilihan dan bisa didesain sesuai kebutuhan Anda.
+      <h2 class="text-gold">Katalog Produk</h2>
+      <p class="mt-2 mb-4 text-light">
+        Temukan berbagai produk dari <strong>DAFF Studio Creative</strong>. 
+        Mulai dari kaos komunitas, batik, daster, hingga pakaian seragam sekolah. 
+        Semua produk dibuat dengan bahan pilihan dan bisa didesain sesuai kebutuhan Anda.
       </p>
     </div>
 
@@ -320,58 +322,88 @@ gtag('config', 'AW-16867417010');
         
         <!-- Card 1 -->
         <div class="swiper-slide">
-          <div class="card produk-card h-100">
-            <img src="images/hijab.webp" class="card-img-top" alt="Kaos Komunitas Custom Bandung Cimahi" loading="lazy">
+          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
+            <img src="images/hijab.webp" class="card-img-top" alt="Kerudung Custom Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title">Kerudung</h5>
-              <p class="card-text">Desain kerudung custom untuk nyaman dipakai.</p>
-              <a href="kerudung.html" class="btn btn-custom">Lihat Detail</a>
+              <h5 class="card-title text-white">Kerudung</h5>
+              <p class="card-text text-light">Desain kerudung custom untuk nyaman dipakai.</p>
+              <a href="kerudung.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
         </div>
 
         <!-- Card 2 -->
         <div class="swiper-slide">
-          <div class="card produk-card h-100">
+          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
             <img src="images/batik.webp" class="card-img-top" alt="Batik Custom Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title">Batik</h5>
-              <p class="card-text">Batik custom untuk acara formal & seragam kantor.</p>
-              <a href="batik.html" class="btn btn-custom">Lihat Detail</a>
+              <h5 class="card-title text-white">Batik</h5>
+              <p class="card-text text-light">Batik custom untuk acara formal & seragam kantor.</p>
+              <a href="batik.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
         </div>
 
         <!-- Card 3 -->
         <div class="swiper-slide">
-          <div class="card produk-card h-100">
+          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
             <img src="images/dasterr.webp" class="card-img-top" alt="Daster Nyaman Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title">Daster</h5>
-              <p class="card-text">Nyaman dipakai sehari-hari dengan pilihan bahan terbaik.</p>
-              <a href="daster.html" class="btn btn-custom">Lihat Detail</a>
+              <h5 class="card-title text-white">Daster</h5>
+              <p class="card-text text-light">Nyaman dipakai sehari-hari dengan pilihan bahan terbaik.</p>
+              <a href="daster.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
         </div>
 
         <!-- Card 4 -->
         <div class="swiper-slide">
-          <div class="card produk-card h-100">
-            <img src="images/kaos.webp" class="card-img-top" alt="Seragam Sekolah Custom Bandung Cimahi" loading="lazy">
+          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
+            <img src="images/kaos.webp" class="card-img-top" alt="Kaos Custom Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title">Kaos</h5>
-              <p class="card-text">Desain custom untuk komunitas, nyaman dipakai, bahan cotton combed.</p>
-              <a href="kaos.html" class="btn btn-custom">Lihat Detail</a>
+              <h5 class="card-title text-white">Kaos</h5>
+              <p class="card-text text-light">Desain custom untuk komunitas, nyaman dipakai, bahan cotton combed.</p>
+              <a href="kaos.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
         </div>
 
       </div>
+    </div>
 
-      <!-- Navigasi -->
+    <!-- Tombol Download -->
+    <div class="text-center mt-4">
+      <a href="files/katalog-produk-daffstudio.pdf" class="btn btn-lg btn-gold px-5 py-3" download>
+        📥 Download Katalog Produk
+      </a>
     </div>
   </div>
 </section>
+
+<style>
+  .bg-dark {
+    background-color: #121212 !important;
+  }
+  .btn-gold {
+    background: linear-gradient(45deg, #d4af37, #f1c40f);
+    color: #000;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: 0.3s ease-in-out;
+  }
+  .btn-gold:hover {
+    background: linear-gradient(45deg, #f1c40f, #d4af37);
+    transform: scale(1.05);
+  }
+  .text-gold {
+    color: #f1c40f;
+  }
+  .card-text {
+    color: #ddd !important;
+  }
+</style>
+
+
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
