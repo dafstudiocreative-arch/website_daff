@@ -317,7 +317,7 @@ gtag('config', 'AW-16867417010');
     </div>
 
     <!-- Swiper Container -->
-    <div class="swiper mySwiper pb-5">
+    <div class="swiper mySwiper pb-5 position-relative">
       <div class="swiper-wrapper">
         
         <!-- Card 1 -->
@@ -369,6 +369,11 @@ gtag('config', 'AW-16867417010');
         </div>
 
       </div>
+
+      <!-- Indicator Geser (Hanya muncul di mobile) -->
+      <div class="swipe-indicator d-md-none">
+        <span>⬅️ Geser untuk lihat produk ➡️</span>
+      </div>
     </div>
 
     <!-- Tombol Download -->
@@ -401,7 +406,23 @@ gtag('config', 'AW-16867417010');
   .card-text {
     color: #ddd !important;
   }
+
+  /* Indicator geser */
+  .swipe-indicator {
+    text-align: center;
+    color: #f1c40f;
+    font-size: 14px;
+    margin-top: 12px;
+    animation: swipeHint 1.5s infinite;
+  }
+
+  @keyframes swipeHint {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+  }
 </style>
+
 
 
 
