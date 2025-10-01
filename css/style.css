@@ -205,7 +205,7 @@ body {
 /* Floating WhatsApp Button */
 .whatsapp-float {
   position: fixed;
-  bottom: 80px; /* naikkan posisinya */
+  bottom: 20px; /* naikkan posisinya */
   right: 20px;
   background: linear-gradient(145deg, #22c35e, #25d366);
   color: white;
