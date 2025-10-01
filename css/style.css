@@ -147,6 +147,93 @@ body {
   .hero_bg_box::before {
     background: transparent !important;
   }
+
+  /* Atur tata letak info_section ketika mobile */
+  .info_section .col-md-3 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .info_logo img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .social_box {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+/* Sosial media icons */
+.social_box a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social_box a:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+/* Warna brand */
+.social_box a[aria-label*="TikTok"] {
+  background: #000000;
+}
+
+.social_box a[aria-label*="Shopee"] {
+  background: #ee4d2d;
+}
+
+.social_box a[aria-label*="YouTube"] {
+  background: #ff0000;
+}
+
+.social_box a[aria-label*="Instagram"] {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, 
+              #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 40px;   /* dinaikin sedikit supaya tidak tabrakan dengan footer */
+  right: 20px;
+  background: linear-gradient(145deg, #22c35e, #25d366);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float i {
+  font-size: 28px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* Tambahkan jarak bawah di footer biar aman */
+.info_section {
+  padding-bottom: 100px; 
 }
 
 .sub_page .hero_area {
