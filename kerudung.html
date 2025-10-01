@@ -42,12 +42,14 @@
       box-shadow: 0 12px 25px rgba(0,0,0,0.2);
     }
     .produk-card img {
-      height: 220px;
-      object-fit: cover;
       width: 100%;
+      height: auto;            /* biar proporsional */
+      object-fit: contain;     /* tampil penuh tanpa terpotong */
+      background-color: #fff;  /* opsional, biar ada background putih */
       cursor: pointer;
       transition: transform 0.3s ease;
     }
+
     .produk-card img:hover {
       transform: scale(1.05);
     }
