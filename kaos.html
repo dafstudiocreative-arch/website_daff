@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Kaos Custom Bandung Cimahi - Murah & Premium | DAFF Studio Creative</title>
+  <meta name="description" content="Katalog kaos custom Bandung Cimahi dari DAFF Studio Creative. Tersedia 20+ desain unik, bahan premium, harga murah, bisa custom desain sendiri & pesan langsung via WhatsApp.">
+  <meta name="author" content="DAFF Studio Creative">
+
+  <!-- Open Graph SEO -->
+  <meta property="og:title" content="Katalog Kaos Custom - DAFF Studio Creative">
+  <meta property="og:description" content="Temukan koleksi kaos custom Bandung Cimahi. Bisa desain sendiri, bahan premium, harga terjangkau.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="kaos/1.webp">
+  <meta property="og:url" content="https://daffdesain.store/kaos.html">
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      font-family: 'Poppins', sans-serif;
+    }
+    .produk-card {
+      border: none;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+    }
+    .produk-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .produk-card img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background-color: #fff;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .produk-card img:hover {
+      transform: scale(1.05);
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    .btn-wa i {
+      margin-right: 6px;
+      font-size: 1.1rem;
+    }
+    .btn-wa:hover {
+      background: #1ebe5b;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    .custom-box {
+      margin-top: 15px;
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    .custom-box strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    .modal-img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+    }
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .btn-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #222;
+      color: #fff;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      z-index: 1050;
+    }
+    .btn-home:hover {
+      background: #444;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <header class="py-5 text-center">
+    <div class="container">
+      <a href="index.html" class="btn-home"><i class="bi bi-house-door-fill"></i></a>
+      <h1 class="fw-bold">👕 Katalog Kaos Custom DAFF Studio Creative</h1>
+      <p class="mt-3 text-muted">
+        Temukan <strong>20 desain kaos custom premium</strong> dengan kualitas terbaik.  
+        Cocok untuk komunitas, event, brand lokal, hingga kebutuhan sehari-hari.
+      </p>
+    </div>
+  </header>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4" id="produk-container"></div>
+    </div>
+  </section>
+
+  <!-- Modal Preview -->
+  <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-body text-center p-0">
+          <img id="previewImage" src="" alt="Preview Kaos Custom" class="modal-img">
+          <h5 class="text-white mt-3" id="previewTitle"></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 DAFF Studio Creative | Katalog Kaos Custom Bandung & Cimahi</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const produkContainer = document.getElementById("produk-container");
+    const previewImage = document.getElementById("previewImage");
+    const previewTitle = document.getElementById("previewTitle");
+
+    const waNumber = "62895401071376"; // nomor WA
+
+    // --- Loop produk kaos (1 - 20) ---
+    for (let i = 1; i <= 20; i++) {
+      let tipe = "Kaos-" + i;
+      let img = `kaos/${i}.webp`;
+
+      let card = `
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <article class="card produk-card h-100 text-center position-relative" 
+                   itemscope itemtype="https://schema.org/Product">
+            <div class="position-relative">
+              <img src="${img}" alt="Kaos Custom ${tipe} Bandung Cimahi - DAFF Studio Creative"
+                   itemprop="image" 
+                   onclick="showPreview('${img}', '${tipe}')">
+            </div>
+            <div class="card-body">
+              <h2 class="card-title h6" itemprop="name">Kaos Custom Tipe ${tipe}</h2>
+              <a target="_blank" 
+                 href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kaos%20Custom%20Tipe%20${tipe}" 
+                 class="btn-wa">
+                <i class="bi bi-whatsapp"></i> Pesan Langsung
+              </a>
+              <div class="custom-box mt-3" itemprop="description">
+                <strong>Custom Design</strong>
+                Bisa pilih bahan & warna.<br>
+                Harga mulai Rp85.000 - Rp150.000<br>
+                Diskon khusus order komunitas.<br>
+                Free desain jika order minimal 12 pcs.
+              </div>
+
+              <!-- schema.org offers -->
+              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="IDR" />
+                <meta itemprop="price" content="85000" />
+                <link itemprop="availability" href="https://schema.org/InStock" />
+                <meta itemprop="url" content="https://wa.me/${waNumber}" />
+              </div>
+            </div>
+          </article>
+        </div>
+      `;
+      produkContainer.innerHTML += card;
+    }
+
+    // Fungsi preview modal
+    function showPreview(src, tipe) {
+      previewImage.src = src;
+      previewTitle.textContent = "Kaos Custom " + tipe;
+      const modal = new bootstrap.Modal(document.getElementById('previewModal'));
+      modal.show();
+    }
+  </script>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "ProductCollection",
+    "name": "Katalog Kaos Custom DAFF Studio Creative",
+    "description": "20 koleksi kaos custom premium Bandung Cimahi. Bisa desain sendiri, cocok untuk komunitas, event, dan brand lokal.",
+    "url": "https://daffdesain.store/kaos.html",
+    "brand": {
+      "@type": "Brand",
+      "name": "DAFF Studio Creative"
+    },
+    "productGroupID": "kaos-custom",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Kaos Custom Bandung Cimahi",
+      "itemListElement": [
+        {
+          "@type": "Product",
+          "name": "Kaos Custom Premium Bandung Cimahi",
+          "image": "https://daffdesain.store/kaos/1.webp",
+          "description": "Kaos custom elegan dengan desain eksklusif dan bahan premium.",
+          "brand": "DAFF Studio Creative",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://wa.me/62895401071376",
+            "priceCurrency": "IDR",
+            "price": "85000",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+</body>
+</html>
