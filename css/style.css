@@ -89,82 +89,51 @@ body {
 }
 
 /*header section*/
-.hero_area {
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  position: relative;
-}
-
+/* Hero area responsif */
+/* Hero background box penuh layar */
 .hero_bg_box {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;        /* tinggi penuh layar */
   overflow: hidden;
-  z-index: -1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-.hero_bg_box .img-box img {
-  min-width: 100%;
-  min-height: 100%;
-}
-.hero_bg_box .img-box {
-  background: url("../images/hero.webp") no-repeat center center;
-  background-size: cover;
+/* Pastikan carousel ikut ukuran parent */
+.hero_bg_box .carousel,
+.hero_bg_box .carousel-inner,
+.hero_bg_box .carousel-item {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
 }
 
-
-/* Default overlay untuk desktop */
-.hero_bg_box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Gambar default (desktop) → cover biar penuh */
+.hero_bg_box .carousel-item img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.35));
-  z-index: 1;
+  object-fit: cover;     /* penuh layar */
+  object-position: center; /* fokus tengah */
 }
 
-/* Hilangkan overlay di mobile */
+/* Mobile responsive */
 @media (max-width: 768px) {
-  .hero_bg_box::before {
-    background: transparent !important;
+  .hero_bg_box {
+    height: auto;       /* jangan paksa full, biar ikut gambar */
   }
 
-  /* Atur tata letak info_section ketika mobile */
-  .info_section .col-md-3 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .info_logo img {
-    margin: 0 auto;
-    display: block;
-  }
-
-  .social_box {
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
+  .hero_bg_box .carousel-item img {
+    width: 100%;
+    height: auto;       /* tinggi otomatis */
+    max-height: 100vh;  /* jangan lebih tinggi dari layar */
+    object-fit: contain;  /* gambar utuh */
+    object-position: top center; /* tarik ke atas */
+    background-color: #f8f6f4; /* isi ruang kosong biar tidak hitam */
   }
 }
+
+
+
+
+
 /* Sosial media icons */
 .social_box a {
   display: inline-flex;
@@ -250,6 +219,8 @@ body {
 }
 
 .header_section {
+  background-color: #1c1c1c; /* hitam sama kayak header_top */
+  margin: 0;
   padding: 0;
 }
 
@@ -265,7 +236,6 @@ body {
 .header_top {
   background-color: #1c1c1c;
   padding: 15px 0;
-
 }
 
 .header_top .contact_link-container {
@@ -286,7 +256,6 @@ body {
           align-items: center;
   color: #ffffff;
   font-size: 15px;
-  
 }
 
 .header_top .contact_link-container a i {
@@ -311,7 +280,6 @@ body {
 }
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
-  padding: 0;
   padding: 35px 15px 10px 15px;
   color: #ffffff;
   text-align: center;
@@ -320,9 +288,25 @@ body {
   transition: all .2s;
 }
 
-.custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
+/* Hover & aktif */
+.custom_nav-container .navbar-nav .nav-item:hover .nav-link,
+.custom_nav-container .navbar-nav .nav-item.active .nav-link {
   background-color: #1c1c1c;
+  color: #f1db25; /* highlight gold */
 }
+
+/* ✅ Tambahan fix: biar nggak ada sekat putih */
+.header_bottom {
+  background-color: #1c1c1c;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #1c1c1c !important;
+  border: none;
+}
+
 
 a,
 a:hover,
