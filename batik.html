@@ -25,86 +25,175 @@
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      background: linear-gradient(to right, #fdfbfb, #ebedee);
-      font-family: 'Poppins', sans-serif;
-    }
-    .produk-card {
-      border: none;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      transition: all 0.4s ease;
-    }
-    .produk-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-    }
+<style>
+  body {
+    background: linear-gradient(to right, #fdfbfb, #ebedee);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* --- CARD PRODUK --- */
+  .produk-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+  }
+
+  .produk-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+  }
+
+  /* --- GAMBAR PRODUK / CAROUSEL (PERBAIKAN UTAMA) --- */
+  .produk-card img {
+    width: 100%;
+    height: 100%;
+    max-height: 460px; /* naik dari 220px → 460px */
+    object-fit: contain; /* tampil penuh tanpa crop */
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .produk-card img:hover {
+    transform: scale(1.03);
+  }
+
+  /* --- RESPONSIVE: PERBESAR GAMBAR DI LAYAR KECIL --- */
+  @media (max-width: 991px) {
     .produk-card img {
-      height: 220px;
-      object-fit: cover;
-      width: 100%;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+      max-height: 500px; /* tampilan tablet */
     }
-    .produk-card img:hover {
-      transform: scale(1.05);
+  }
+
+  @media (max-width: 576px) {
+    .produk-card img {
+      max-height: 560px; /* tampilan HP: lebih tinggi */
     }
-    .btn-wa {
-      display: inline-flex;
-      align-items: center;
-      background: #25d366;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      padding: 8px 18px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .btn-wa i {
-      margin-right: 6px;
-      font-size: 1.1rem;
-    }
-    .btn-wa:hover {
-      background: #1ebe5b;
-      color: #fff;
-      transform: translateY(-2px);
-    }
-    .custom-box {
-      margin-top: 15px;
-      background: #f8f9fa;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      text-align: left;
-    }
-    .custom-box strong {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
-    }
-    .custom-box ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-    .modal-img {
-      width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-    }
-    footer {
-      background: #222;
-      color: #aaa;
-      padding: 20px 0;
-      text-align: center;
-      margin-top: 50px;
-    }
-  </style>
+  }
+
+  /* --- TOMBOL WHATSAPP --- */
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #25d366;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .btn-wa i {
+    margin-right: 6px;
+    font-size: 1.1rem;
+  }
+
+  .btn-wa:hover {
+    background: #1ebe5b;
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  /* --- BOX INFORMASI DESKRIPSI --- */
+  .custom-box {
+    margin-top: 15px;
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  .custom-box strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .custom-box ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  /* --- MODAL PREVIEW --- */
+  .modal-img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+  }
+
+  /* --- TOMBOL CAROUSEL WARNA HITAM --- */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #000;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-control-prev-icon:hover,
+  .carousel-control-next-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 10%;
+  }
+
+  /* --- FOOTER --- */
+  footer {
+    background: #222;
+    color: #aaa;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  /* --- TOMBOL KEMBALI KE HOME --- */
+  .btn-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    z-index: 1050;
+  }
+
+  .btn-home:hover {
+    background: #444;
+    transform: scale(1.1);
+  }
+</style>
+
+
 </head>
 <body>
   <header class="py-5 text-center">
@@ -170,70 +259,101 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const produkContainer = document.getElementById("produk-container");
-    const previewImage = document.getElementById("previewImage");
-    const previewTitle = document.getElementById("previewTitle");
+<script>
+  const produkContainer = document.getElementById("produk-container");
+  const previewImage = document.getElementById("previewImage");
+  const previewTitle = document.getElementById("previewTitle");
 
-    const waNumber = "62895401071376"; // nomor WA
+  const waNumber = "62895401071376"; // nomor WA
 
-    // --- 5 Produk Batik Custom ---
-    const batikProducts = [];
-    for (let i = 1; i <= 40; i++) {
-      batikProducts.push({ tipe: "Batik-" + i, img: `batik/${i}.webp` });
+  // --- Setiap produk punya 1 batik asli + 4 colorway (total 5 gambar) ---
+  const batikProducts = [];
+  for (let i = 1; i <= 40; i++) {
+    const colorways = [];
+    // gambar pertama = batik asli
+    colorways.push(`batik/${i}.webp`);
+    // empat colorway tambahan
+    for (let c = 1; c <= 4; c++) {
+      colorways.push(`batik/${i}-c${c}.webp`);
     }
+    batikProducts.push({ tipe: "Batik-" + i, colors: colorways });
+  }
 
-    batikProducts.forEach(prod => {
-      let card = `
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <article class="card produk-card h-100 text-center position-relative" 
-                   itemscope itemtype="https://schema.org/Product">
-            <div class="position-relative">
-              <img src="${prod.img}" alt="Batik Custom ${prod.tipe} - DAFF Studio Creative" 
-                   itemprop="image" 
-                   onclick="showPreview('${prod.img}', '${prod.tipe}')"
-                   style="cursor:pointer;">
-            </div>
-            <div class="card-body">
-              <h2 class="card-title h6" itemprop="name">Batik Custom Tipe ${prod.tipe}</h2>
-              <a target="_blank" 
-                 href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Batik%20Custom%20Tipe%20${prod.tipe}" 
-                 class="btn-wa">
-                <i class="bi bi-whatsapp"></i> Pesan Langsung
-              </a>
-              <div class="custom-box mt-3" itemprop="description">
-                <strong>Desain Eksklusif</strong>
-                <ul>
-                  <li>1 desain eksklusif</li>
-                  <li>Jasa separasi (pisah warna) batik untuk hasil warna presisi</li>
-                  <li>Siap cetak produksi</li>
-                  <li>Mendukung berbagai varian warna</li>
-                  <li>Termasuk revisi hingga sesuai kebutuhan</li>
-                </ul>
-                <p><strong>Harga: Rp 900.000/desain</strong></p>
-              </div>
-              <!-- schema.org offers -->
-              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                <meta itemprop="priceCurrency" content="IDR" />
-                <meta itemprop="price" content="600000" />
-                <link itemprop="availability" href="https://schema.org/InStock" />
-                <meta itemprop="url" content="https://wa.me/${waNumber}" />
-              </div>
-            </div>
-          </article>
-        </div>
-      `;
-      produkContainer.innerHTML += card;
-    });
+  batikProducts.forEach((prod, index) => {
+    const carouselId = `carousel-${index}`;
 
-    // Fungsi preview modal
-    function showPreview(src, tipe) {
-      previewImage.src = src;
-      previewTitle.textContent = "Batik Custom " + tipe;
-      const modal = new bootstrap.Modal(document.getElementById('previewModal'));
-      modal.show();
-    }
-  </script>
+    // generate carousel slides (1 asli + 4 colorway)
+    const slides = prod.colors
+      .map(
+        (img, i) => `
+      <div class="carousel-item ${i === 0 ? "active" : ""}">
+        <img src="${img}" 
+             alt="Batik ${prod.tipe} - Warna ${i === 0 ? "Asli" : "Colorway " + i}" 
+             class="d-block w-100"
+             style="height:220px; object-fit:cover; cursor:pointer;"
+             onclick="showPreview('${img}', '${prod.tipe} - ${
+          i === 0 ? "Asli" : "Colorway " + i
+        }')">
+      </div>
+    `
+      )
+      .join("");
+
+    const card = `
+      <div class="col-lg-3 col-md-4 col-sm-6">
+        <article class="card produk-card h-100 text-center position-relative" 
+                 itemscope itemtype="https://schema.org/Product">
+          <div id="${carouselId}" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
+            <div class="carousel-inner">
+              ${slides}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="card-body">
+            <h2 class="card-title h6" itemprop="name">Batik Custom Tipe ${prod.tipe}</h2>
+            <a target="_blank" 
+               href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Batik%20Custom%20Tipe%20${prod.tipe}" 
+               class="btn-wa">
+              <i class="bi bi-whatsapp"></i> Pesan Langsung
+            </a>
+            <div class="custom-box mt-3" itemprop="description">
+              <strong>Desain Eksklusif</strong>
+              <ul>
+                <li>1 desain batik asli + 4 varian warna (colorway)</li>
+                <li>Jasa separasi warna presisi</li>
+                <li>Siap cetak produksi</li>
+                <li>Revisi hingga sesuai kebutuhan</li>
+              </ul>
+              <p><strong>Harga: Rp 900.000/desain</strong></p>
+            </div>
+            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+              <meta itemprop="priceCurrency" content="IDR" />
+              <meta itemprop="price" content="900000" />
+              <link itemprop="availability" href="https://schema.org/InStock" />
+              <meta itemprop="url" content="https://wa.me/${waNumber}" />
+            </div>
+          </div>
+        </article>
+      </div>
+    `;
+    produkContainer.innerHTML += card;
+  });
+
+  // Fungsi preview modal
+  function showPreview(src, tipe) {
+    previewImage.src = src;
+    previewTitle.textContent = "Batik Custom " + tipe;
+    const modal = new bootstrap.Modal(document.getElementById("previewModal"));
+    modal.show();
+  }
+</script>
+
 
   <!-- Schema.org Structured Data (SEO Google) -->
   <script type="application/ld+json">
