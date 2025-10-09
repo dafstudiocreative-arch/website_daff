@@ -191,6 +191,28 @@
     background: #444;
     transform: scale(1.1);
   }
+  .carousel-img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-img:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+  .carousel-img {
+    max-height: 560px;
+  }
+}
 </style>
 
 
@@ -266,34 +288,32 @@
 
   const waNumber = "62895401071376"; // nomor WA
 
-  // --- Setiap produk punya 1 batik asli + 4 colorway (total 5 gambar) ---
+  // --- Setiap produk punya 1 batik asli + 4 colorway (format: 1.1-c, 1.2-c, dst) ---
   const batikProducts = [];
   for (let i = 1; i <= 40; i++) {
     const colorways = [];
     // gambar pertama = batik asli
     colorways.push(`batik/${i}.webp`);
-    // empat colorway tambahan
+    // empat colorway tambahan dengan format baru
     for (let c = 1; c <= 4; c++) {
-      colorways.push(`batik/${i}-c${c}.webp`);
+      colorways.push(`batik/${i}.${c}-c.webp`);
     }
     batikProducts.push({ tipe: "Batik-" + i, colors: colorways });
   }
 
+  // Generate setiap card produk
   batikProducts.forEach((prod, index) => {
     const carouselId = `carousel-${index}`;
 
-    // generate carousel slides (1 asli + 4 colorway)
+    // generate carousel slides
     const slides = prod.colors
       .map(
         (img, i) => `
       <div class="carousel-item ${i === 0 ? "active" : ""}">
         <img src="${img}" 
              alt="Batik ${prod.tipe} - Warna ${i === 0 ? "Asli" : "Colorway " + i}" 
-             class="d-block w-100"
-             style="height:220px; object-fit:cover; cursor:pointer;"
-             onclick="showPreview('${img}', '${prod.tipe} - ${
-          i === 0 ? "Asli" : "Colorway " + i
-        }')">
+              class="d-block w-100 carousel-img"
+             onclick="showPreview('${img}', '${prod.tipe} - ${i === 0 ? "Asli" : "Colorway " + i}')">
       </div>
     `
       )
@@ -353,6 +373,7 @@
     modal.show();
   }
 </script>
+
 
 
   <!-- Schema.org Structured Data (SEO Google) -->
