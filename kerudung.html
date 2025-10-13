@@ -169,14 +169,20 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Tambahkan sebelum script Bootstrap -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js"></script>
+
 <script>
-  const produkContainer = document.getElementById("produk-container");
-  const previewImage = document.getElementById("previewImage");
-  const previewTitle = document.getElementById("previewTitle");
-
+$(document).ready(function () {
   const waNumber = "62895401071376"; // nomor WA
+  const produkContainer = $("#produk-container");
+  const previewImage = $("#previewImage");
+  const previewTitle = $("#previewTitle");
 
-  // --- Tambah 2 produk baru di paling atas (BAR series) ---
+  let html = "";
+
+  // --- Tambah 4 produk baru (Bar series) ---
   const newProducts = [
     { tipe: "Bar-1", img: "kerudung/bar1.webp" },
     { tipe: "Bar-2", img: "kerudung/bar2.webp" },
@@ -185,12 +191,14 @@
   ];
 
   newProducts.forEach(prod => {
-    let card = `
+    html += `
       <div class="col-lg-3 col-md-4 col-sm-6">
         <article class="card produk-card h-100 text-center position-relative" 
                  itemscope itemtype="https://schema.org/Product">
           <div class="position-relative">
-            <img src="${prod.img}" alt="Kerudung Custom ${prod.tipe} - DAFF Studio Creative" 
+            <img data-src="${prod.img}" 
+                 alt="Kerudung Custom ${prod.tipe} - DAFF Studio Creative" 
+                 class="lazy"
                  itemprop="image" 
                  onclick="showPreview('${prod.img}', '${prod.tipe}')"
                  style="cursor:pointer;">
@@ -203,15 +211,13 @@
               <i class="bi bi-whatsapp"></i> Pesan Langsung
             </a>
             <div class="custom-box mt-3" itemprop="description">
-              <strong>Custom Design</strong>
+              <strong>Custom Design</strong><br>
               Harga final sesuai konsep.<br>
               Tambah seri warna Rp35.000/warna<br>
               Rp350.000 - Rp600.000<br>
               Ready Design per pack (isi 5 warna)<br>
               Rp350.000/desain
             </div>
-
-            <!-- schema.org offers untuk produk tersedia -->
             <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="IDR" />
               <meta itemprop="price" content="350000" />
@@ -222,26 +228,22 @@
         </article>
       </div>
     `;
-    produkContainer.innerHTML += card;
   });
 
-  // --- Loop produk lama (semua SOLD OUT) ---
-  const images = [];
-  for (let i = 1; i <= 100; i++) {
-    images.push(`kerudung/${i}.webp`);
-  }
-
+  // --- Produk lama (SOLD OUT) ---
   const totalCards = 100;
   for (let i = 1; i <= totalCards; i++) {
-    let tipe = "Da-" + (1000 + i);
-    let img = images[i - 1];
+    const tipe = "Da-" + (1000 + i);
+    const img = `kerudung/${i}.webp`;
 
-    let card = `
+    html += `
       <div class="col-lg-3 col-md-4 col-sm-6">
         <article class="card produk-card h-100 text-center position-relative" 
                  itemscope itemtype="https://schema.org/Product">
           <div class="position-relative">
-            <img src="${img}" alt="Kerudung Custom ${tipe} - DAFF Studio Creative" 
+            <img data-src="${img}" 
+                 alt="Kerudung Custom ${tipe} - DAFF Studio Creative" 
+                 class="lazy"
                  itemprop="image" 
                  onclick="showPreview('${img}', '${tipe}')"
                  style="cursor:pointer;">
@@ -251,15 +253,13 @@
             <h2 class="card-title h6" itemprop="name">Kerudung Custom Tipe ${tipe}</h2>
             <button class="btn btn-secondary w-100" disabled>Sudah Terjual</button>
             <div class="custom-box mt-3" itemprop="description">
-              <strong>Custom Design</strong>
+              <strong>Custom Design</strong><br>
               Harga final sesuai konsep.<br>
               Tambah seri warna Rp35.000/warna<br>
               Rp350.000 - Rp600.000<br>
               Ready Design per pack (isi 5 warna)<br>
               Rp350.000/desain
             </div>
-
-            <!-- schema.org offers untuk produk SOLD OUT -->
             <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
               <meta itemprop="priceCurrency" content="IDR" />
               <meta itemprop="price" content="350000" />
@@ -270,17 +270,24 @@
         </article>
       </div>
     `;
-    produkContainer.innerHTML += card;
   }
 
-  // Fungsi preview modal
-  function showPreview(src, tipe) {
-    previewImage.src = src;
-    previewTitle.textContent = "Kerudung Custom " + tipe;
-    const modal = new bootstrap.Modal(document.getElementById('previewModal'));
-    modal.show();
-  }
+  // Masukkan semua kartu ke kontainer sekaligus (lebih cepat)
+  produkContainer.html(html);
+
+  // Lazy load gambar saat mendekati viewport
+  $(".lazy").Lazy();
+});
+
+// Fungsi modal preview
+function showPreview(src, tipe) {
+  $("#previewImage").attr("src", src);
+  $("#previewTitle").text("Kerudung Custom " + tipe);
+  const modal = new bootstrap.Modal(document.getElementById("previewModal"));
+  modal.show();
+}
 </script>
+
 
 
 
