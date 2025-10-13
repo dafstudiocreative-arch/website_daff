@@ -281,45 +281,44 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Tambahkan library jQuery dan plugin Lazy -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js"></script>
+
 <script>
-  const produkContainer = document.getElementById("produk-container");
-  const previewImage = document.getElementById("previewImage");
-  const previewTitle = document.getElementById("previewTitle");
-
+$(document).ready(function () {
   const waNumber = "62895401071376"; // nomor WA
+  const produkContainer = $("#produk-container");
+  let html = "";
 
-  // --- Setiap produk punya 1 batik asli + 4 colorway (format: 1.1-c, 1.2-c, dst) ---
+  // --- Buat daftar produk Batik ---
   const batikProducts = [];
   for (let i = 1; i <= 40; i++) {
     const colorways = [];
-    // gambar pertama = batik asli
-    colorways.push(`batik/${i}.webp`);
-    // empat colorway tambahan dengan format baru
+    colorways.push(`batik/${i}.webp`); // gambar utama
     for (let c = 1; c <= 4; c++) {
-      colorways.push(`batik/${i}.${c}-c.webp`);
+      colorways.push(`batik/${i}.${c}-c.webp`); // colorway tambahan
     }
     batikProducts.push({ tipe: "Batik-" + i, colors: colorways });
   }
 
-  // Generate setiap card produk
+  // --- Generate setiap kartu produk ---
   batikProducts.forEach((prod, index) => {
     const carouselId = `carousel-${index}`;
-
-    // generate carousel slides
     const slides = prod.colors
       .map(
         (img, i) => `
       <div class="carousel-item ${i === 0 ? "active" : ""}">
-        <img src="${img}" 
+        <img data-src="${img}" 
              alt="Batik ${prod.tipe} - Warna ${i === 0 ? "Asli" : "Colorway " + i}" 
-              class="d-block w-100 carousel-img"
+             class="d-block w-100 carousel-img lazy"
              onclick="showPreview('${img}', '${prod.tipe} - ${i === 0 ? "Asli" : "Colorway " + i}')">
       </div>
     `
       )
       .join("");
 
-    const card = `
+    html += `
       <div class="col-lg-3 col-md-4 col-sm-6">
         <article class="card produk-card h-100 text-center position-relative" 
                  itemscope itemtype="https://schema.org/Product">
@@ -362,17 +361,24 @@
         </article>
       </div>
     `;
-    produkContainer.innerHTML += card;
   });
 
-  // Fungsi preview modal
-  function showPreview(src, tipe) {
-    previewImage.src = src;
-    previewTitle.textContent = "Batik Custom " + tipe;
-    const modal = new bootstrap.Modal(document.getElementById("previewModal"));
-    modal.show();
-  }
+  // --- Masukkan semua kartu sekaligus ke container ---
+  produkContainer.html(html);
+
+  // --- Aktifkan Lazy Loading untuk semua gambar ---
+  $(".lazy").Lazy();
+});
+
+// --- Fungsi Preview Modal ---
+function showPreview(src, tipe) {
+  $("#previewImage").attr("src", src);
+  $("#previewTitle").text("Batik Custom " + tipe);
+  const modal = new bootstrap.Modal(document.getElementById("previewModal"));
+  modal.show();
+}
 </script>
+
 
 
 
