@@ -171,7 +171,37 @@ $(document).ready(function () {
   const produkContainer = $("#produk-container");
   let html = "";
 
-  // --- Produk yang tersedia ---
+  // --- Produk yang SOLD OUT (ditampilkan dulu di atas) ---
+  for (let i = 1; i <= 13; i++) {
+    const tipe = "Kaos-S" + i;
+    const img = `kaos/s${i}.webp`;
+
+    html += `
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <article class="card produk-card h-100 text-center position-relative sold-out">
+          <div class="position-relative">
+            <span class="sold-label">SOLD OUT</span>
+            <img data-src="${img}" 
+                 alt="${tipe} (SOLD OUT) Bandung Cimahi - DAFF Studio Creative"
+                 class="lazy img-fluid"
+                 style="cursor:not-allowed;">
+          </div>
+          <div class="card-body">
+            <h2 class="card-title h6 text-danger">${tipe} (Sold Out)</h2>
+            <a class="btn btn-success btn-sm disabled-btn">
+              <i class="bi bi-whatsapp"></i> Pesan Langsung
+            </a>
+            <div class="custom-box mt-3 text-muted">
+              <strong>Produk Habis</strong><br>
+              Stok habis, tidak dapat dipesan saat ini.
+            </div>
+          </div>
+        </article>
+      </div>
+    `;
+  }
+
+  // --- Produk yang tersedia (ditampilkan setelah SOLD OUT) ---
   for (let i = 1; i <= 20; i++) {
     const tipe = "Kaos-" + i;
     const img = `kaos/${i}.webp`;
@@ -206,37 +236,7 @@ $(document).ready(function () {
     `;
   }
 
-  // --- Produk yang SOLD OUT ---
-  for (let i = 1; i <= 13; i++) {
-    const tipe = "Kaos-S" + i;
-    const img = `kaos/s${i}.webp`;
-
-    html += `
-      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <article class="card produk-card h-100 text-center position-relative sold-out">
-          <div class="position-relative">
-            <span class="sold-label">SOLD OUT</span>
-            <img data-src="${img}" 
-                 alt="${tipe} (SOLD OUT) Bandung Cimahi - DAFF Studio Creative"
-                 class="lazy img-fluid"
-                 style="cursor:not-allowed;">
-          </div>
-          <div class="card-body">
-            <h2 class="card-title h6 text-danger">${tipe} (Sold Out)</h2>
-            <a class="btn btn-success btn-sm disabled-btn">
-              <i class="bi bi-whatsapp"></i> Pesan Langsung
-            </a>
-            <div class="custom-box mt-3 text-muted">
-              <strong>Produk Habis</strong><br>
-              Stok habis, tidak dapat dipesan saat ini.
-            </div>
-          </div>
-        </article>
-      </div>
-    `;
-  }
-
-  // --- Tampilkan semua produk ---
+  // --- Tampilkan semua produk di container ---
   produkContainer.html(html);
 
   // --- Aktifkan lazy load ---
@@ -254,6 +254,7 @@ function showPreview(src, tipe) {
   modal.show();
 }
 </script>
+
 
 <style type="text/css">
   
