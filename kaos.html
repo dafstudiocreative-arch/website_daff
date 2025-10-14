@@ -171,44 +171,34 @@ $(document).ready(function () {
   const produkContainer = $("#produk-container");
   let html = "";
 
-  // --- Loop produk kaos (1 - 20) ---
+  // --- Produk yang tersedia ---
   for (let i = 1; i <= 20; i++) {
     const tipe = "Kaos-" + i;
     const img = `kaos/${i}.webp`;
 
     html += `
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <article class="card produk-card h-100 text-center position-relative" 
-                 itemscope itemtype="https://schema.org/Product">
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <article class="card produk-card h-100 text-center position-relative">
           <div class="position-relative">
             <img data-src="${img}" 
                  alt="Kaos Custom ${tipe} Bandung Cimahi - DAFF Studio Creative"
-                 class="lazy"
-                 itemprop="image" 
+                 class="lazy img-fluid"
                  onclick="showPreview('${img}', '${tipe}')"
                  style="cursor:pointer;">
           </div>
           <div class="card-body">
-            <h2 class="card-title h6" itemprop="name">Kaos Custom Tipe ${tipe}</h2>
+            <h2 class="card-title h6">Kaos Custom Tipe ${tipe}</h2>
             <a target="_blank" 
                href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kaos%20Custom%20Tipe%20${tipe}" 
-               class="btn-wa">
+               class="btn btn-success btn-sm btn-wa">
               <i class="bi bi-whatsapp"></i> Pesan Langsung
             </a>
-            <div class="custom-box mt-3" itemprop="description">
+            <div class="custom-box mt-3">
               <strong>Custom Design</strong><br>
               Bisa pilih bahan & warna.<br>
               Harga mulai Rp85.000 - Rp150.000<br>
               Diskon khusus order komunitas.<br>
               Free desain jika order minimal 12 pcs.
-            </div>
-
-            <!-- schema.org offers -->
-            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <meta itemprop="priceCurrency" content="IDR" />
-              <meta itemprop="price" content="85000" />
-              <link itemprop="availability" href="https://schema.org/InStock" />
-              <meta itemprop="url" content="https://wa.me/${waNumber}" />
             </div>
           </div>
         </article>
@@ -216,15 +206,48 @@ $(document).ready(function () {
     `;
   }
 
-  // --- Masukkan semua kartu ke container sekaligus ---
+  // --- Produk yang SOLD OUT ---
+  for (let i = 1; i <= 5; i++) {
+    const tipe = "Kaos-S" + i;
+    const img = `kaos/s${i}.webp`;
+
+    html += `
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <article class="card produk-card h-100 text-center position-relative sold-out">
+          <div class="position-relative">
+            <span class="sold-label">SOLD OUT</span>
+            <img data-src="${img}" 
+                 alt="${tipe} (SOLD OUT) Bandung Cimahi - DAFF Studio Creative"
+                 class="lazy img-fluid"
+                 style="cursor:not-allowed;">
+          </div>
+          <div class="card-body">
+            <h2 class="card-title h6 text-danger">${tipe} (Sold Out)</h2>
+            <a class="btn btn-success btn-sm disabled-btn">
+              <i class="bi bi-whatsapp"></i> Pesan Langsung
+            </a>
+            <div class="custom-box mt-3 text-muted">
+              <strong>Produk Habis</strong><br>
+              Stok habis, tidak dapat dipesan saat ini.
+            </div>
+          </div>
+        </article>
+      </div>
+    `;
+  }
+
+  // --- Tampilkan semua produk ---
   produkContainer.html(html);
 
-  // --- Aktifkan lazy loading agar gambar hanya dimuat saat terlihat ---
+  // --- Aktifkan lazy load ---
   $(".lazy").Lazy();
 });
 
-// --- Fungsi Preview Modal (tetap sama) ---
+// --- Preview Modal ---
 function showPreview(src, tipe) {
+  // Jangan tampilkan modal untuk gambar SOLD
+  if (src.includes("s")) return;
+
   $("#previewImage").attr("src", src);
   $("#previewTitle").text("Kaos Custom " + tipe);
   const modal = new bootstrap.Modal(document.getElementById("previewModal"));
@@ -232,6 +255,29 @@ function showPreview(src, tipe) {
 }
 </script>
 
+<style type="text/css">
+  
+.sold-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  z-index: 10;
+}
+
+.disabled-btn {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 1 !important; /* tetap normal */
+}
+
+
+</style>
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
