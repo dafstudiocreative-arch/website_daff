@@ -444,61 +444,74 @@ gtag('config', 'AW-16867417010');
 </script>
 
 <style>
+/* === Katalog Produk (Dark Elegant) === */
 .katalog_section {
-  background: #fafafa;
-  padding: 60px 0;
+  background: #000 !important;
+  padding: 80px 0;
+  color: #f1f1f1;
 }
 
 .katalog_section h2 {
-  font-weight: bold;
-  color: #b8860b;
+  font-weight: 800;
+  color: #f1c40f; /* emas elegan */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .katalog_section p {
-  color: #6c757d;
-  font-size: 1rem;
+  color: #ccc;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-/* Card Style */
+/* === Kartu Produk === */
 .produk-card {
-  border: none;
-  border-radius: 20px;
+  border: 1px solid rgba(212,175,55,0.1);
+  border-radius: 16px;
   overflow: hidden;
-  background: #fff;
-  transition: all 0.35s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  background: #111;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
 .produk-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 25px rgba(241,196,15,0.25);
 }
 
+/* Gambar Produk */
 .produk-card img {
   height: 220px;
+  width: 100%;
   object-fit: cover;
-  border-bottom: 3px solid #d4af37;
+  border-bottom: 2px solid #d4af37;
+  filter: brightness(0.9);
+  transition: filter 0.3s ease;
 }
 
-/* Card Text */
+.produk-card:hover img {
+  filter: brightness(1.05);
+}
+
+/* === Teks Kartu === */
 .produk-card .card-title {
   font-weight: 700;
-  color: #b8860b;
+  color: #f1c40f;
   margin-bottom: 10px;
 }
 
 .produk-card .card-text {
   font-size: 0.95rem;
-  color: #555;
+  color: #ddd;
   min-height: 50px;
 }
 
-/* Custom Button */
+/* === Tombol Custom Emas === */
 .btn-custom {
   display: inline-block;
-  background: linear-gradient(135deg, #d4af37, #b8860b);
-  color: black;
-  font-weight: 600;
+  background: linear-gradient(135deg, #f1c40f, #d4af37);
+  color: #000;
+  font-weight: 700;
   padding: 8px 20px;
   border-radius: 30px;
   border: none;
@@ -507,32 +520,230 @@ gtag('config', 'AW-16867417010');
 }
 
 .btn-custom:hover {
-  background: linear-gradient(135deg, #b8860b, #d4af37);
-  box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4);
+  background: linear-gradient(135deg, #d4af37, #f1c40f);
+  box-shadow: 0 0 20px rgba(241,196,15,0.4);
+  transform: translateY(-3px) scale(1.05);
 }
 
-/* Swiper Custom Nav */
+/* === Navigasi Swiper === */
 .custom-nav {
-  color: #b8860b;
+  color: #f1c40f;
   transition: all 0.3s ease;
 }
 
 .custom-nav:hover {
-  color: #d4af37;
-  transform: scale(1.2);
+  color: #ffd700;
+  transform: scale(1.15);
 }
 
+/* Swiper pagination */
 .swiper-pagination-bullet {
-  background: #b8860b;
-  opacity: 0.6;
+  background: #f1c40f;
+  opacity: 0.4;
 }
 
 .swiper-pagination-bullet-active {
-  background: #d4af37;
+  background: #ffd700;
   opacity: 1;
 }
+
+/* === Responsif === */
+@media (max-width: 768px) {
+  .katalog_section {
+    padding: 60px 0;
+  }
+  .produk-card img {
+    height: 180px;
+  }
+}
 </style>
+
   <!-- end about section -->
+<section class="contoh_produk_section layout_padding text-white">
+  <div class="container">
+    <div class="heading_container text-center mb-5 fade-in-up">
+      <h2 class="text-gold">Contoh Produk</h2>
+    </div>
+
+    <!-- Kerudung -->
+    <div class="row align-items-center mb-5 fade-in-up">
+      <div class="col-md-6">
+        <img src="images/1.webp" alt="Contoh Kerudung" class="img-fluid produk-img">
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-gold">Kerudung Custom</h3>
+        <p>
+          Kerudung eksklusif dengan desain modern, bahan lembut, dan nyaman digunakan sepanjang hari. Cocok untuk seragam maupun acara formal.
+        </p>
+        <a href="kerudung.html" class="btn btn-gold mt-3">Lihat Lainnya</a>
+      </div>
+    </div>
+
+    <!-- Batik -->
+    <div class="row align-items-center mb-5 flex-row-reverse fade-in-up">
+      <div class="col-md-6">
+        <img src="images/2.webp" alt="Contoh Batik" class="img-fluid produk-img">
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-gold">Batik Custom</h3>
+        <p>
+          Batik dengan motif eksklusif dan warna tahan lama. Dirancang untuk kebutuhan profesional, acara resmi, dan seragam kantor.
+        </p>
+        <a href="batik.html" class="btn btn-gold mt-3">Lihat Lainnya</a>
+      </div>
+    </div>
+
+    <!-- Daster -->
+    <div class="row align-items-center mb-5 fade-in-up">
+      <div class="col-md-6">
+        <img src="images/3.webp" alt="Contoh Daster" class="img-fluid produk-img">
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-gold">Daster Nyaman</h3>
+        <p>
+          Daster dengan bahan adem, lembut, dan ringan. Pilihan ideal untuk kenyamanan sehari-hari tanpa mengorbankan gaya.
+        </p>
+        <a href="daster.html" class="btn btn-gold mt-3">Lihat Lainnya</a>
+      </div>
+    </div>
+
+    <!-- Kaos -->
+    <div class="row align-items-center mb-5 flex-row-reverse fade-in-up">
+      <div class="col-md-6">
+        <img src="images/4.webp" alt="Contoh Kaos" class="img-fluid produk-img">
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-gold">Kaos Custom</h3>
+        <p>
+          Kaos cotton combed premium yang nyaman dan stylish. Cocok untuk komunitas, event, hingga kebutuhan apparel bisnis Anda.
+        </p>
+        <a href="kaos.html" class="btn btn-gold mt-3">Lihat Lainnya</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style type="text/css">
+/* === Section Style === */
+.contoh_produk_section {
+  background: linear-gradient(180deg, #000 0%, #111 100%);
+  padding: 100px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.contoh_produk_section h2 {
+  font-weight: 800;
+  color: #f8d34e;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.contoh_produk_section p {
+  color: #cfcfcf;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* === Gambar Produk === */
+.produk-img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: transparent !important;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+  transition: all 0.5s ease;
+  transform-origin: center;
+}
+
+.produk-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.15);
+}
+
+/* === Judul Produk === */
+.contoh_produk_section h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f1c40f;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.contoh_produk_section h3::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #f1c40f, #d4af37);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+/* === Tombol Emas === */
+.btn-gold {
+  background: linear-gradient(135deg, #f1c40f, #d4af37);
+  color: #000;
+  font-weight: 700;
+  padding: 10px 30px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 20px rgba(241,196,15,0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #d4af37, #f1c40f);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 30px rgba(241,196,15,0.4);
+}
+
+/* === Animasi Fade-in saat Scroll === */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s ease-out;
+}
+
+.fade-in-up.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .contoh_produk_section .row {
+    text-align: center;
+  }
+  .contoh_produk_section img {
+    margin-bottom: 20px;
+  }
+  .contoh_produk_section h3 {
+    font-size: 1.5rem;
+  }
+}
+</style>
+<script>
+  // Fade-in on scroll
+  const fadeElements = document.querySelectorAll('.fade-in-up');
+  function fadeInOnScroll() {
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add('appear');
+      }
+    });
+  }
+  window.addEventListener('scroll', fadeInOnScroll);
+  fadeInOnScroll();
+</script>
+
+
 
   <!-- service section -->
 <!-- Partners / Mitra Section -->
