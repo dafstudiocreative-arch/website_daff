@@ -1094,6 +1094,180 @@ gtag('config', 'AW-16867417010');
 </style>
 
 
+<!-- Floating Chatbot -->
+<div id="chatbot-btn">💬</div>
+<div id="chatbot-window">
+  <div class="chat-header">Daff Studio Chat</div>
+  <div class="chat-body" id="chat-body">
+    <div class="bot-msg">
+      Halo! 👋 Saya asisten <strong>Daff Studio</strong>.<br><br>
+      Kamu bisa ketik salah satu kata kunci berikut ini:
+      <ul style="margin-top:6px; padding-left:20px;">
+        <li><strong>halo</strong> – untuk menyapa saya 😄</li>
+        <li><strong>harga</strong> – untuk tahu kisaran harga produk</li>
+        <li><strong>produk</strong> – untuk tahu jenis produk yang kami buat</li>
+        <li><strong>alamat</strong> – untuk tahu lokasi kami</li>
+        <li><strong>kontak</strong> – untuk info WhatsApp/email</li>
+        <li><strong>terima kasih</strong> – untuk menutup percakapan</li>
+      </ul>
+    </div>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="user-input" placeholder="Ketik pesan..." />
+    <button id="send-btn">Kirim</button>
+  </div>
+</div>
+
+<style>
+  /* Tombol Chat di kiri bawah */
+  #chatbot-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #f1c40f, #d4af37);
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    transition: 0.3s;
+  }
+  #chatbot-btn:hover {
+    transform: scale(1.1);
+  }
+
+  /* Jendela Chat */
+  #chatbot-window {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    width: 300px;
+    height: 420px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9998;
+  }
+
+  .chat-header {
+    background: #f1c40f;
+    color: #000;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .chat-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
+
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+
+  .chat-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+  }
+
+  .chat-input button {
+    border: none;
+    background: #f1c40f;
+    font-weight: bold;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+
+  /* Gaya Pesan */
+  .bot-msg, .user-msg {
+    margin: 6px 0;
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+    display: inline-block;
+    clear: both;
+  }
+
+  .bot-msg {
+    background: #eee;
+    float: left;
+  }
+
+  .user-msg {
+    background: #f1c40f;
+    color: #000;
+    float: right;
+  }
+</style>
+
+<script>
+  const chatbotBtn = document.getElementById('chatbot-btn');
+  const chatbotWindow = document.getElementById('chatbot-window');
+  const sendBtn = document.getElementById('send-btn');
+  const userInput = document.getElementById('user-input');
+  const chatBody = document.getElementById('chat-body');
+
+  // Buka / tutup chatbot
+  chatbotBtn.addEventListener('click', () => {
+    chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Fungsi kirim pesan
+  sendBtn.addEventListener('click', sendMessage);
+  userInput.addEventListener('keypress', e => {
+    if (e.key === 'Enter') sendMessage();
+  });
+
+  function sendMessage() {
+    const text = userInput.value.trim();
+    if (!text) return;
+    
+    // tampilkan pesan user
+    const userMsg = document.createElement('div');
+    userMsg.classList.add('user-msg');
+    userMsg.textContent = text;
+    chatBody.appendChild(userMsg);
+    userInput.value = '';
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // respon bot
+    setTimeout(() => {
+      const botMsg = document.createElement('div');
+      botMsg.classList.add('bot-msg');
+      botMsg.textContent = getBotReply(text.toLowerCase());
+      chatBody.appendChild(botMsg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }, 600);
+  }
+
+  // Jawaban otomatis sederhana
+  function getBotReply(input) {
+    if (input.includes('halo') || input.includes('hai')) return 'Halo juga! 😊 Apa yang ingin kamu tanyakan tentang produk kami?';
+    if (input.includes('harga')) return 'Harga kami bervariasi tergantung jenis produk. Contoh: batik mulai 900rb, kaos mulai 120rb.';
+    if (input.includes('produk')) return 'Kami menyediakan batik, kaos, hijab, dan daster custom berkualitas tinggi.';
+    if (input.includes('alamat')) return 'Kami berlokasi di Jln Pasir Kumeli No 1B, Baros, Cimahi Tengah.';
+    if (input.includes('kontak')) return 'Kamu bisa hubungi kami lewat WhatsApp di 0895-4010-71376 📞 atau email: dafstudio.creative@gmail.com';
+    if (input.includes('terima kasih')) return 'Sama-sama! 😊 Senang bisa membantu. Jangan ragu hubungi kami kapan pun.';
+    return 'Maaf, saya belum mengerti. Coba ketik salah satu kata kunci: harga, produk, alamat, kontak, atau halo.';
+  }
+</script>
+
 
 
   <!-- end team section -->
