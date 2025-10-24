@@ -190,6 +190,16 @@ $(document).ready(function () {
     { tipe: "Bar-4", img: "kerudung/bar4.webp" }
   ];
 
+  // Deskripsi ukuran & harga
+  const hargaDeskripsi = `
+    <strong>Ukuran. 112</strong><br>
+    1 pcs : Rp 23.000<br>
+    dalam roll : Rp 20.000/pcs<br><br>
+    <strong>Ukuran. 125</strong><br>
+    1 pcs : Rp 28.000<br>
+    dalam roll : Rp 25.000/pcs
+  `;
+
   newProducts.forEach(prod => {
     html += `
       <div class="col-lg-3 col-md-4 col-sm-6">
@@ -197,32 +207,21 @@ $(document).ready(function () {
                  itemscope itemtype="https://schema.org/Product">
           <div class="position-relative">
             <img data-src="${prod.img}" 
-                 alt="Kerudung Custom ${prod.tipe} - DAFF Studio Creative" 
+                 alt="Kerudung ${prod.tipe} - DAFF Studio Creative" 
                  class="lazy"
                  itemprop="image" 
                  onclick="showPreview('${prod.img}', '${prod.tipe}')"
                  style="cursor:pointer;">
           </div>
           <div class="card-body">
-            <h2 class="card-title h6" itemprop="name">Kerudung Custom Tipe ${prod.tipe}</h2>
+            <h2 class="card-title h6" itemprop="name">Kerudung ${prod.tipe}</h2>
             <a target="_blank" 
-               href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kerudung%20Custom%20Tipe%20${prod.tipe}" 
+               href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kerudung%20${prod.tipe}" 
                class="btn-wa">
               <i class="bi bi-whatsapp"></i> Pesan Langsung
             </a>
             <div class="custom-box mt-3" itemprop="description">
-              <strong>Custom Design</strong><br>
-              Harga final sesuai konsep.<br>
-              Tambah seri warna Rp35.000/warna<br>
-              Rp350.000 - Rp600.000<br>
-              Ready Design per pack (isi 5 warna)<br>
-              Rp350.000/desain
-            </div>
-            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <meta itemprop="priceCurrency" content="IDR" />
-              <meta itemprop="price" content="350000" />
-              <link itemprop="availability" href="https://schema.org/InStock" />
-              <meta itemprop="url" content="https://wa.me/${waNumber}" />
+              ${hargaDeskripsi}
             </div>
           </div>
         </article>
@@ -242,7 +241,7 @@ $(document).ready(function () {
                  itemscope itemtype="https://schema.org/Product">
           <div class="position-relative">
             <img data-src="${img}" 
-                 alt="Kerudung Custom ${tipe} - DAFF Studio Creative" 
+                 alt="Kerudung ${tipe} - DAFF Studio Creative" 
                  class="lazy"
                  itemprop="image" 
                  onclick="showPreview('${img}', '${tipe}')"
@@ -250,21 +249,10 @@ $(document).ready(function () {
             <div class="sold-overlay">SOLD OUT</div>
           </div>
           <div class="card-body">
-            <h2 class="card-title h6" itemprop="name">Kerudung Custom Tipe ${tipe}</h2>
+            <h2 class="card-title h6" itemprop="name">Kerudung ${tipe}</h2>
             <button class="btn btn-secondary w-100" disabled>Sudah Terjual</button>
             <div class="custom-box mt-3" itemprop="description">
-              <strong>Custom Design</strong><br>
-              Harga final sesuai konsep.<br>
-              Tambah seri warna Rp35.000/warna<br>
-              Rp350.000 - Rp600.000<br>
-              Ready Design per pack (isi 5 warna)<br>
-              Rp350.000/desain
-            </div>
-            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <meta itemprop="priceCurrency" content="IDR" />
-              <meta itemprop="price" content="350000" />
-              <link itemprop="availability" href="https://schema.org/OutOfStock" />
-              <meta itemprop="url" content="https://daffdesain.store/kerudung.html" />
+              ${hargaDeskripsi}
             </div>
           </div>
         </article>
@@ -282,11 +270,12 @@ $(document).ready(function () {
 // Fungsi modal preview
 function showPreview(src, tipe) {
   $("#previewImage").attr("src", src);
-  $("#previewTitle").text("Kerudung Custom " + tipe);
+  $("#previewTitle").text("Kerudung " + tipe);
   const modal = new bootstrap.Modal(document.getElementById("previewModal"));
   modal.show();
 }
 </script>
+
 
 
 
