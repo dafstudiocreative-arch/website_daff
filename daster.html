@@ -35,34 +35,27 @@
     box-shadow: 0 12px 25px rgba(0,0,0,0.2);
   }
 
-  /* --- GAMBAR PRODUK / CAROUSEL (PERBAIKAN UTAMA) --- */
-  .produk-card img {
+  /* --- GAMBAR PRODUK / CAROUSEL --- */
+  .carousel-img {
     width: 100%;
-    height: 100%;
-    max-height: 460px; /* naik dari 220px → 460px */
-    object-fit: contain; /* tampil penuh tanpa crop */
-    background-color: #f9f9f9;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    background-color: #f8f8f8;
     border-radius: 10px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
     display: block;
     margin: 0 auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
   }
 
-  .produk-card img:hover {
+  .carousel-img:hover {
     transform: scale(1.03);
   }
 
-  /* --- RESPONSIVE: PERBESAR GAMBAR DI LAYAR KECIL --- */
-  @media (max-width: 991px) {
-    .produk-card img {
-      max-height: 500px; /* tampilan tablet */
-    }
-  }
-
-  @media (max-width: 576px) {
-    .produk-card img {
-      max-height: 560px; /* tampilan HP: lebih tinggi */
+  @media (max-width: 768px) {
+    .carousel-img {
+      max-height: 560px;
     }
   }
 
@@ -122,7 +115,7 @@
     object-fit: contain;
   }
 
-  /* --- TOMBOL CAROUSEL WARNA HITAM --- */
+  /* --- TOMBOL CAROUSEL --- */
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     background-color: #000;
@@ -180,28 +173,6 @@
     background: #444;
     transform: scale(1.1);
   }
-  .carousel-img {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit: contain;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.carousel-img:hover {
-  transform: scale(1.03);
-}
-
-@media (max-width: 768px) {
-  .carousel-img {
-    max-height: 560px;
-  }
-}
 </style>
 </head>
 
@@ -243,18 +214,11 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Tambahkan jQuery dan plugin Lazy -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js"></script>
-
 <script>
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", () => {
   const waNumber = "62895401071376";
-  const produkContainer = $("#produk-container");
-  const previewImage = $("#previewImage");
-  const previewTitle = $("#previewTitle");
+  const produkContainer = document.getElementById("produk-container");
 
-  // Data produk (1 desain utama + 5 colorway)
   const dasterProducts = [];
   for (let i = 1; i <= 13; i++) {
     const colorways = [];
@@ -265,15 +229,15 @@ $(document).ready(function() {
     dasterProducts.push({ tipe: "Bar-" + i, colors: colorways });
   }
 
-  // Generate kartu produk (pakai data-src untuk lazy load)
   let allCards = "";
   dasterProducts.forEach((prod, index) => {
     const carouselId = `carousel-${index}`;
     const slides = prod.colors.map((img, i) => `
       <div class="carousel-item ${i === 0 ? "active" : ""}">
-        <img data-src="${img}" 
+        <img src="${img}" 
+             loading="lazy" width="800" height="800"
              alt="Daster ${prod.tipe} - ${i === 0 ? "Asli" : "Colorway " + i}" 
-             class="d-block w-100 carousel-img lazy"
+             class="d-block w-100 carousel-img"
              onclick="showPreview('${img}', '${prod.tipe} - ${i === 0 ? "Asli" : "Colorway " + i}')">
       </div>
     `).join("");
@@ -313,22 +277,16 @@ $(document).ready(function() {
     `;
   });
 
-  // Masukkan semua kartu sekaligus ke container
-  produkContainer.html(allCards);
-
-  // Inisialisasi lazy load agar gambar dimuat saat terlihat
-  $('.lazy').Lazy();
+  produkContainer.innerHTML = allCards;
 });
 
-// Fungsi preview modal tetap sama
 function showPreview(src, tipe) {
-  $('#previewImage').attr('src', src);
-  $('#previewTitle').text("Daster Eksklusif " + tipe);
+  document.getElementById("previewImage").src = src;
+  document.getElementById("previewTitle").textContent = "Daster Eksklusif " + tipe;
   const modal = new bootstrap.Modal(document.getElementById("previewModal"));
   modal.show();
 }
 </script>
-
 
 </body>
 </html>
