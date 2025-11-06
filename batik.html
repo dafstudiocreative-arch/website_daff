@@ -46,34 +46,32 @@
     box-shadow: 0 12px 25px rgba(0,0,0,0.2);
   }
 
-  /* --- GAMBAR PRODUK / CAROUSEL (PERBAIKAN UTAMA) --- */
-  .produk-card img {
+  /* --- GAMBAR PRODUK --- */
+  .carousel-img {
     width: 100%;
-    height: 100%;
-    max-height: 460px; /* naik dari 220px → 460px */
-    object-fit: contain; /* tampil penuh tanpa crop */
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
     background-color: #f9f9f9;
     border-radius: 10px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
     display: block;
     margin: 0 auto;
+    transition: transform 0.3s ease, filter 0.4s ease;
+    cursor: pointer;
+    filter: blur(10px);
   }
 
-  .produk-card img:hover {
+  .carousel-img[data-loaded="true"] {
+    filter: blur(0);
+  }
+
+  .carousel-img:hover {
     transform: scale(1.03);
   }
 
-  /* --- RESPONSIVE: PERBESAR GAMBAR DI LAYAR KECIL --- */
-  @media (max-width: 991px) {
-    .produk-card img {
-      max-height: 500px; /* tampilan tablet */
-    }
-  }
-
-  @media (max-width: 576px) {
-    .produk-card img {
-      max-height: 560px; /* tampilan HP: lebih tinggi */
+  @media (max-width: 768px) {
+    .carousel-img {
+      max-height: 560px;
     }
   }
 
@@ -133,7 +131,7 @@
     object-fit: contain;
   }
 
-  /* --- TOMBOL CAROUSEL WARNA HITAM --- */
+  /* --- TOMBOL CAROUSEL --- */
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     background-color: #000;
@@ -167,7 +165,7 @@
     margin-top: 50px;
   }
 
-  /* --- TOMBOL KEMBALI KE HOME --- */
+  /* --- TOMBOL HOME --- */
   .btn-home {
     position: fixed;
     top: 20px;
@@ -191,62 +189,15 @@
     background: #444;
     transform: scale(1.1);
   }
-  .carousel-img {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit: contain;
-  background-color: #f8f8f8;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.carousel-img:hover {
-  transform: scale(1.03);
-}
-
-@media (max-width: 768px) {
-  .carousel-img {
-    max-height: 560px;
-  }
-}
 </style>
-
-
 </head>
+
 <body>
   <header class="py-5 text-center">
     <div class="container">
       <a href="index.html" class="btn-home">
         <i class="bi bi-house-door-fill"></i>
       </a>
-      <style>
-        .btn-home {
-          position: fixed;
-          top: 20px;
-          left: 20px;
-          background: #222;
-          color: #fff;
-          border-radius: 50%;
-          width: 48px;
-          height: 48px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.3rem;
-          font-weight: bold;
-          box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-          transition: all 0.3s ease;
-          z-index: 1050;
-        }
-        .btn-home:hover {
-          background: #444;
-          transform: scale(1.1);
-        }
-      </style>
       <h1 class="fw-bold">🧵 Katalog Batik Custom DAFF Studio Creative</h1>
       <p class="mt-3 text-muted">Temukan <strong>batik custom elegan</strong> dengan kualitas terbaik.  
         Cocok untuk acara formal, komunitas, hingga sehari-hari.</p>
@@ -281,114 +232,104 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Tambahkan library jQuery dan plugin Lazy -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js"></script>
 
-<script>
-$(document).ready(function () {
-  const waNumber = "62895401071376"; // nomor WA
-  const produkContainer = $("#produk-container");
-  let html = "";
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const waNumber = "62895401071376";
+    const produkContainer = document.getElementById("produk-container");
+    let html = "";
 
-  // --- Buat daftar produk Batik ---
-  const batikProducts = [];
-  for (let i = 1; i <= 40; i++) {
-    const colorways = [];
-    colorways.push(`batik/${i}.webp`); // gambar utama
-    for (let c = 1; c <= 4; c++) {
-      colorways.push(`batik/${i}.${c}-c.webp`); // colorway tambahan
+    const batikProducts = [];
+    for (let i = 1; i <= 40; i++) {
+      const colorways = [];
+      colorways.push(`batik/${i}.webp`);
+      for (let c = 1; c <= 4; c++) {
+        colorways.push(`batik/${i}.${c}-c.webp`);
+      }
+      batikProducts.push({ tipe: "Batik-" + i, colors: colorways });
     }
-    batikProducts.push({ tipe: "Batik-" + i, colors: colorways });
-  }
 
-  // --- Generate setiap kartu produk ---
-  batikProducts.forEach((prod, index) => {
-    const carouselId = `carousel-${index}`;
-    const slides = prod.colors
-      .map(
-        (img, i) => `
-      <div class="carousel-item ${i === 0 ? "active" : ""}">
-        <img data-src="${img}" 
-             alt="Batik ${prod.tipe} - Warna ${i === 0 ? "Asli" : "Colorway " + i}" 
-             class="d-block w-100 carousel-img lazy"
-             onclick="showPreview('${img}', '${prod.tipe} - ${i === 0 ? "Asli" : "Colorway " + i}')">
-      </div>
-    `
-      )
-      .join("");
+    batikProducts.forEach((prod, index) => {
+      const carouselId = `carousel-${index}`;
+      const slides = prod.colors.map((img, i) => `
+        <div class="carousel-item ${i === 0 ? "active" : ""}">
+          <img src="${img}" 
+               loading="lazy"
+               width="800" height="800"
+               alt="Batik ${prod.tipe} - Warna ${i === 0 ? "Asli" : "Colorway " + i}"
+               class="d-block w-100 carousel-img"
+               onclick="showPreview('${img}', '${prod.tipe} - ${i === 0 ? "Asli" : "Colorway " + i}')">
+        </div>
+      `).join("");
 
-    html += `
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <article class="card produk-card h-100 text-center position-relative" 
-                 itemscope itemtype="https://schema.org/Product">
-          <div id="${carouselId}" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
-            <div class="carousel-inner">
-              ${slides}
+      html += `
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <article class="card produk-card h-100 text-center position-relative" itemscope itemtype="https://schema.org/Product">
+            <div id="${carouselId}" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
+              <div class="carousel-inner">${slides}</div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </button>
-          </div>
 
-          <div class="card-body">
-            <h2 class="card-title h6" itemprop="name">Batik Custom Tipe ${prod.tipe}</h2>
-            <a target="_blank" 
-               href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Batik%20Custom%20Tipe%20${prod.tipe}" 
-               class="btn-wa">
-              <i class="bi bi-whatsapp"></i> Pesan Langsung
-            </a>
-            <div class="custom-box mt-3" itemprop="description">
-              <strong>Desain Eksklusif</strong>
-              <ul>
-                <li>1 desain batik asli + 4 varian warna (colorway)</li>
-                <li>Jasa separasi warna presisi</li>
-                <li>Siap cetak produksi</li>
-                <li>Revisi hingga sesuai kebutuhan</li>
-              </ul>
-              <p><strong>Harga: Rp 900.000/desain</strong></p>
+            <div class="card-body">
+              <h2 class="card-title h6" itemprop="name">Batik Custom Tipe ${prod.tipe}</h2>
+              <a target="_blank" 
+                 href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Batik%20Custom%20Tipe%20${prod.tipe}" 
+                 class="btn-wa">
+                <i class="bi bi-whatsapp"></i> Pesan Langsung
+              </a>
+              <div class="custom-box mt-3" itemprop="description">
+                <strong>Desain Eksklusif</strong>
+                <ul>
+                  <li>1 desain batik asli + 4 varian warna (colorway)</li>
+                  <li>Jasa separasi warna presisi</li>
+                  <li>Siap cetak produksi</li>
+                  <li>Revisi hingga sesuai kebutuhan</li>
+                </ul>
+                <p><strong>Harga: Rp 900.000/desain</strong></p>
+              </div>
+              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                <meta itemprop="priceCurrency" content="IDR" />
+                <meta itemprop="price" content="900000" />
+                <link itemprop="availability" href="https://schema.org/InStock" />
+                <meta itemprop="url" content="https://wa.me/${waNumber}" />
+              </div>
             </div>
-            <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-              <meta itemprop="priceCurrency" content="IDR" />
-              <meta itemprop="price" content="900000" />
-              <link itemprop="availability" href="https://schema.org/InStock" />
-              <meta itemprop="url" content="https://wa.me/${waNumber}" />
-            </div>
-          </div>
-        </article>
-      </div>
-    `;
+          </article>
+        </div>
+      `;
+    });
+
+    produkContainer.innerHTML = html;
+
+    // Hapus blur setelah gambar selesai dimuat
+    document.querySelectorAll(".carousel-img").forEach(img => {
+      img.addEventListener("load", () => {
+        img.dataset.loaded = "true";
+      });
+    });
   });
 
-  // --- Masukkan semua kartu sekaligus ke container ---
-  produkContainer.html(html);
+  // Fungsi preview modal
+  function showPreview(src, tipe) {
+    document.getElementById("previewImage").src = src;
+    document.getElementById("previewTitle").textContent = "Batik Custom " + tipe;
+    const modal = new bootstrap.Modal(document.getElementById("previewModal"));
+    modal.show();
+  }
+  </script>
 
-  // --- Aktifkan Lazy Loading untuk semua gambar ---
-  $(".lazy").Lazy();
-});
-
-// --- Fungsi Preview Modal ---
-function showPreview(src, tipe) {
-  $("#previewImage").attr("src", src);
-  $("#previewTitle").text("Batik Custom " + tipe);
-  const modal = new bootstrap.Modal(document.getElementById("previewModal"));
-  modal.show();
-}
-</script>
-
-
-
-
-  <!-- Schema.org Structured Data (SEO Google) -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
     "@type": "ProductCollection",
     "name": "Katalog Batik Custom DAFF Studio Creative",
-    "description": "Koleksi batik custom eksklusif dengan jasa separasi warna, hasil presisi, siap cetak produksi, mendukung berbagai varian warna, dan termasuk revisi sesuai kebutuhan. Harga Rp 900.000/desain.",
+    "description": "Koleksi batik custom eksklusif dengan jasa separasi warna presisi. Siap cetak produksi, mendukung berbagai varian warna, revisi sesuai kebutuhan. Harga Rp 900.000/desain.",
     "url": "https://daffdesain.store/batik.html",
     "brand": {
       "@type": "Brand",
@@ -403,13 +344,13 @@ function showPreview(src, tipe) {
           "@type": "Product",
           "name": "Batik Custom DAFF Studio Creative",
           "image": "https://daffdesain.store/batik/1.webp",
-          "description": "1 desain eksklusif, jasa separasi warna presisi, siap cetak produksi, mendukung varian warna, revisi hingga sesuai kebutuhan. Harga Rp 900.000/desain.",
+          "description": "1 desain eksklusif, jasa separasi warna presisi, siap cetak produksi, mendukung varian warna. Harga Rp 900.000/desain.",
           "brand": "DAFF Studio Creative",
           "offers": {
             "@type": "Offer",
             "url": "https://wa.me/62895401071376",
             "priceCurrency": "IDR",
-            "price": "600000",
+            "price": "900000",
             "availability": "https://schema.org/InStock"
           }
         }
