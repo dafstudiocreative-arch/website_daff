@@ -3,219 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Katalog Batik Custom Bandung Cimahi - Murah & Elegan | DAFF Studio Creative</title>
-  <meta name="description" content="Katalog batik custom Bandung Cimahi dari DAFF Studio Creative. Tersedia koleksi batik elegan dengan bahan premium, harga terjangkau, bisa custom & pesan via WhatsApp.">
-  <meta name="keywords" content="batik custom Bandung, batik Cimahi, batik elegan murah, katalog batik premium, batik modern, batik untuk acara, batik komunitas, batik couple, batik handmade">
+  <title>Katalog Batik Custom Bandung Cimahi - Elegan & Premium | DAFF Studio Creative</title>
+  <meta name="description" content="Katalog batik custom Bandung Cimahi dari DAFF Studio Creative. Desain elegan, warna eksklusif, bahan premium. Bisa pesan langsung via WhatsApp.">
+  <meta name="keywords" content="batik custom Bandung, batik Cimahi, batik elegan, batik premium, batik modern, desain batik, batik eksklusif">
   <meta name="author" content="DAFF Studio Creative">
 
-  <!-- Open Graph SEO -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Katalog Batik Custom - DAFF Studio Creative">
-  <meta property="og:description" content="Temukan koleksi batik custom elegan dari DAFF Studio Creative. Bisa pesan langsung via WhatsApp.">
-  <meta property="og:type" content="website">
+  <meta property="og:description" content="Temukan batik custom elegan dengan kualitas premium dari DAFF Studio Creative.">
   <meta property="og:image" content="batik/1.webp">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://daffdesain.store/batik.html">
   <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="shortcut icon" href="images/brand.png" type="image/x-icon">
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-  body {
-    background: linear-gradient(to right, #fdfbfb, #ebedee);
-    font-family: 'Poppins', sans-serif;
-  }
-
-  /* --- CARD PRODUK --- */
-  .produk-card {
-    border: none;
-    border-radius: 20px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    transition: all 0.4s ease;
-  }
-
-  .produk-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-  }
-
-  /* --- GAMBAR PRODUK --- */
-  .carousel-img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    object-fit: contain;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    display: block;
-    margin: 0 auto;
-    transition: transform 0.3s ease, filter 0.4s ease;
-    cursor: pointer;
-    filter: blur(10px);
-  }
-
-  .carousel-img[data-loaded="true"] {
-    filter: blur(0);
-  }
-
-  .carousel-img:hover {
-    transform: scale(1.03);
-  }
-
-  @media (max-width: 768px) {
-    .carousel-img {
-      max-height: 560px;
+  <style>
+    /* === GLOBAL === */
+    body {
+      background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      overflow-x: hidden;
     }
-  }
 
-  /* --- TOMBOL WHATSAPP --- */
-  .btn-wa {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #25d366;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 10px 22px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
+    h1, h2, h5 {
+      color: #2b2b2b;
+    }
 
-  .btn-wa i {
-    margin-right: 6px;
-    font-size: 1.1rem;
-  }
+    /* === HEADER === */
+    header {
+      background: linear-gradient(135deg, #ffffffcc, #f8f8f8cc), url('images/batik-bg.jpg') center/cover no-repeat;
+      padding: 90px 0 60px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+      animation: fadeDown 1.2s ease;
+    }
 
-  .btn-wa:hover {
-    background: #1ebe5b;
-    color: #fff;
-    transform: translateY(-2px);
-  }
+    header h1 {
+      font-weight: 700;
+      font-size: 2.2rem;
+    }
 
-  /* --- BOX INFORMASI DESKRIPSI --- */
-  .custom-box {
-    margin-top: 15px;
-    background: #f8f9fa;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    text-align: left;
-  }
+    header p {
+      color: #666;
+      max-width: 700px;
+      margin: 15px auto 0;
+      font-size: 1rem;
+    }
 
-  .custom-box strong {
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-  }
+    /* Tombol Home */
+    .btn-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #2b2b2b;
+      color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      z-index: 1050;
+    }
+    .btn-home:hover { background: #444; transform: scale(1.1); }
 
-  .custom-box ul {
-    margin: 0;
-    padding-left: 20px;
-  }
+    /* === CARD PRODUK === */
+    .produk-card {
+      border: none;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      position: relative;
+      animation: fadeUp 0.8s ease forwards;
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    .produk-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
 
-  /* --- MODAL PREVIEW --- */
-  .modal-img {
-    width: 100%;
-    max-height: 80vh;
-    object-fit: contain;
-  }
+    /* === CAROUSEL GAMBAR === */
+    .carousel-img {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: contain;
+      background-color: #f9f9f9;
+      border-bottom: 1px solid #eee;
+      transition: transform 0.3s ease, filter 0.5s ease;
+      filter: brightness(0.95) blur(8px);
+    }
+    .carousel-img[data-loaded="true"] {
+      filter: brightness(1) blur(0);
+    }
+    .carousel-img:hover { transform: scale(1.05); }
 
-  /* --- TOMBOL CAROUSEL --- */
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    background-color: #000;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    background-size: 60%;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.85;
-    transition: all 0.3s ease;
-  }
+    /* === TOMBOL CAROUSEL === */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      background-size: 60%;
+      transition: all 0.3s ease;
+    }
+    .carousel-control-prev-icon:hover,
+    .carousel-control-next-icon:hover {
+      background-color: #000;
+      transform: scale(1.1);
+    }
 
-  .carousel-control-prev-icon:hover,
-  .carousel-control-next-icon:hover {
-    opacity: 1;
-    transform: scale(1.1);
-  }
+    /* === TOMBOL WHATSAPP === */
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #25d366, #1ebe5b);
+      color: #fff;
+      border-radius: 50px;
+      padding: 10px 22px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(37,211,102,0.3);
+    }
+    .btn-wa:hover { transform: translateY(-2px); }
 
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 10%;
-  }
+    /* === BOX INFO === */
+    .custom-box {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 15px;
+      font-size: 0.85rem;
+      text-align: left;
+    }
+    .custom-box strong { color: #333; display: block; margin-bottom: 5px; }
+    .custom-box ul { padding-left: 18px; margin-bottom: 6px; }
+    .custom-box p { margin: 0; color: #444; font-weight: 500; }
 
-  /* --- FOOTER --- */
-  footer {
-    background: #222;
-    color: #aaa;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 50px;
-  }
+    /* === MODAL === */
+    .modal-content { background: #111; border-radius: 18px; }
+    .modal-img { width: 100%; max-height: 85vh; object-fit: contain; }
 
-  /* --- TOMBOL HOME --- */
-  .btn-home {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #000;
-    color: #fff;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-    transition: all 0.3s ease;
-    z-index: 1050;
-  }
+    /* === FOOTER === */
+    footer {
+      background: #1b1b1b;
+      color: #bbb;
+      padding: 25px 0;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+    }
 
-  .btn-home:hover {
-    background: #444;
-    transform: scale(1.1);
-  }
-</style>
+    /* === ANIMASI === */
+    @keyframes fadeDown { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+    @keyframes fadeUp { to {opacity: 1; transform: translateY(0);} }
+
+  </style>
 </head>
 
 <body>
-  <header class="py-5 text-center">
+  <a href="index.html" class="btn-home"><i class="bi bi-house-door-fill"></i></a>
+
+  <header>
     <div class="container">
-      <a href="index.html" class="btn-home">
-        <i class="bi bi-house-door-fill"></i>
-      </a>
-      <h1 class="fw-bold">🧵 Katalog Batik Custom DAFF Studio Creative</h1>
-      <p class="mt-3 text-muted">Temukan <strong>batik custom elegan</strong> dengan kualitas terbaik.  
-        Cocok untuk acara formal, komunitas, hingga sehari-hari.</p>
+      <h1>🧵 Katalog Batik Custom DAFF Studio Creative</h1>
+      <p>Temukan <strong>batik custom elegan</strong> dengan desain eksklusif, warna artistik, dan kualitas cetak terbaik.</p>
     </div>
   </header>
 
   <section class="py-5">
     <div class="container">
-      <div class="row g-4" id="produk-container">
-        <!-- Card akan digenerate oleh JavaScript -->
-      </div>
+      <div class="row g-4" id="produk-container"></div>
     </div>
   </section>
 
-  <!-- Modal Preview -->
+  <!-- MODAL PREVIEW -->
   <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-dark">
+      <div class="modal-content">
         <div class="modal-body text-center p-0">
           <img id="previewImage" src="" alt="Preview Batik" class="modal-img">
           <h5 class="text-white mt-3" id="previewTitle"></h5>
@@ -224,13 +207,14 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <p>© 2025 DAFF Studio Creative | Katalog Batik Custom Bandung & Cimahi</p>
+    <div class="container text-center">
+      <p>© 2025 <strong>DAFF Studio Creative</strong> — Batik Custom Bandung & Cimahi</p>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- SCRIPT -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
@@ -240,12 +224,9 @@
     let html = "";
 
     const batikProducts = [];
-    for (let i = 1; i <= 40; i++) {
-      const colorways = [];
-      colorways.push(`batik/${i}.webp`);
-      for (let c = 1; c <= 4; c++) {
-        colorways.push(`batik/${i}.${c}-c.webp`);
-      }
+    for (let i = 1; i <= 20; i++) {
+      const colorways = [`batik/${i}.webp`];
+      for (let c = 1; c <= 3; c++) colorways.push(`batik/${i}.${c}-c.webp`);
       batikProducts.push({ tipe: "Batik-" + i, colors: colorways });
     }
 
@@ -253,109 +234,59 @@
       const carouselId = `carousel-${index}`;
       const slides = prod.colors.map((img, i) => `
         <div class="carousel-item ${i === 0 ? "active" : ""}">
-          <img src="${img}" 
-               loading="lazy"
-               width="800" height="800"
-               alt="Batik ${prod.tipe} - Warna ${i === 0 ? "Asli" : "Colorway " + i}"
+          <img src="${img}" loading="lazy" alt="Batik ${prod.tipe} - Varian ${i+1}"
                class="d-block w-100 carousel-img"
-               onclick="showPreview('${img}', '${prod.tipe} - ${i === 0 ? "Asli" : "Colorway " + i}')">
-        </div>
-      `).join("");
+               onclick="showPreview('${img}', '${prod.tipe} - Varian ${i+1}')">
+        </div>`).join("");
 
       html += `
         <div class="col-lg-3 col-md-4 col-sm-6">
-          <article class="card produk-card h-100 text-center position-relative" itemscope itemtype="https://schema.org/Product">
-            <div id="${carouselId}" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
+          <article class="produk-card h-100 text-center">
+            <div id="${carouselId}" class="carousel slide" data-bs-ride="false">
               <div class="carousel-inner">${slides}</div>
               <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="carousel-control-prev-icon"></span>
               </button>
               <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="carousel-control-next-icon"></span>
               </button>
             </div>
 
             <div class="card-body">
-              <h2 class="card-title h6" itemprop="name">Batik Custom Tipe ${prod.tipe}</h2>
-              <a target="_blank" 
-                 href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Batik%20Custom%20Tipe%20${prod.tipe}" 
-                 class="btn-wa">
-                <i class="bi bi-whatsapp"></i> Pesan Langsung
-              </a>
-              <div class="custom-box mt-3" itemprop="description">
-                <strong>Desain Eksklusif</strong>
+              <h2 class="h6 mb-2">${prod.tipe}</h2>
+              <a target="_blank" href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Batik%20Custom%20${prod.tipe}"
+                 class="btn-wa mb-2"><i class="bi bi-whatsapp"></i> Pesan Sekarang</a>
+              <div class="custom-box">
+                <strong>Fitur Desain Eksklusif:</strong>
                 <ul>
-                  <li>1 desain batik asli + 4 varian warna (colorway)</li>
-                  <li>Jasa separasi warna presisi</li>
-                  <li>Siap cetak produksi</li>
-                  <li>Revisi hingga sesuai kebutuhan</li>
+                  <li>1 desain utama + 3 varian warna</li>
+                  <li>Separasi warna presisi siap cetak</li>
+                  <li>Revisi desain sesuai permintaan</li>
                 </ul>
-                <p><strong>Harga: Rp 900.000/desain</strong></p>
-              </div>
-              <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-                <meta itemprop="priceCurrency" content="IDR" />
-                <meta itemprop="price" content="900000" />
-                <link itemprop="availability" href="https://schema.org/InStock" />
-                <meta itemprop="url" content="https://wa.me/${waNumber}" />
+                <p>💰 <strong>Harga: Rp 900.000 / desain</strong></p>
               </div>
             </div>
           </article>
-        </div>
-      `;
+        </div>`;
     });
 
     produkContainer.innerHTML = html;
 
-    // Hapus blur setelah gambar selesai dimuat
+    // Efek muncul lembut
+    setTimeout(() => {
+      document.querySelectorAll('.produk-card').forEach(el => el.style.animationPlayState = 'running');
+    }, 200);
+
+    // Hilangkan blur saat gambar sudah load
     document.querySelectorAll(".carousel-img").forEach(img => {
-      img.addEventListener("load", () => {
-        img.dataset.loaded = "true";
-      });
+      img.addEventListener("load", () => img.dataset.loaded = "true");
     });
   });
 
-  // Fungsi preview modal
   function showPreview(src, tipe) {
     document.getElementById("previewImage").src = src;
-    document.getElementById("previewTitle").textContent = "Batik Custom " + tipe;
-    const modal = new bootstrap.Modal(document.getElementById("previewModal"));
-    modal.show();
-  }
-  </script>
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "ProductCollection",
-    "name": "Katalog Batik Custom DAFF Studio Creative",
-    "description": "Koleksi batik custom eksklusif dengan jasa separasi warna presisi. Siap cetak produksi, mendukung berbagai varian warna, revisi sesuai kebutuhan. Harga Rp 900.000/desain.",
-    "url": "https://daffdesain.store/batik.html",
-    "brand": {
-      "@type": "Brand",
-      "name": "DAFF Studio Creative"
-    },
-    "productGroupID": "batik-custom",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Batik Custom",
-      "itemListElement": [
-        {
-          "@type": "Product",
-          "name": "Batik Custom DAFF Studio Creative",
-          "image": "https://daffdesain.store/batik/1.webp",
-          "description": "1 desain eksklusif, jasa separasi warna presisi, siap cetak produksi, mendukung varian warna. Harga Rp 900.000/desain.",
-          "brand": "DAFF Studio Creative",
-          "offers": {
-            "@type": "Offer",
-            "url": "https://wa.me/62895401071376",
-            "priceCurrency": "IDR",
-            "price": "900000",
-            "availability": "https://schema.org/InStock"
-          }
-        }
-      ]
-    }
+    document.getElementById("previewTitle").textContent = tipe;
+    new bootstrap.Modal(document.getElementById("previewModal")).show();
   }
   </script>
 </body>

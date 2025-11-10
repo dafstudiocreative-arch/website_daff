@@ -12,10 +12,11 @@
   <meta property="og:description" content="Temukan 50 koleksi kerudung custom elegan dari DAFF Studio Creative. Bisa pesan langsung via WhatsApp.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="kerudung/1.webp">
-  <link rel="shortcut icon" href="images/brand.png" type="image/x-icon">
   <meta property="og:url" content="https://daffdesain.store/kerudung.html">
-  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
   <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 
   <!-- Bootstrap & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,57 +26,124 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      background: linear-gradient(to right, #fdfbfb, #ebedee);
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --primary: #e8a0bf;
+      --secondary: #222;
+      --accent: #25d366;
     }
+
+    /* --- Base Style --- */
+    body {
+      background: linear-gradient(to right, #fdfbfb, #ffffff);
+      font-family: 'Poppins', sans-serif;
+      color: var(--secondary);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h5 {
+      color: var(--secondary);
+    }
+
+    /* --- Header --- */
+    .header-hero {
+      background: linear-gradient(135deg, #fff0f5 0%, #ffffff 100%);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      animation: fadeInDown 1s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--secondary);
+      color: #fff;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      z-index: 1050;
+    }
+    .btn-home:hover {
+      background: #444;
+      transform: scale(1.1);
+    }
+
+    /* --- Produk Grid --- */
+    #produk-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Kartu Produk --- */
     .produk-card {
       border: none;
       border-radius: 20px;
       overflow: hidden;
       background: #fff;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform .3s ease, box-shadow .3s ease;
+      position: relative;
     }
     .produk-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     }
+
     .produk-card img {
       width: 100%;
-      height: auto;            /* biar proporsional */
-      object-fit: contain;     /* tampil penuh tanpa terpotong */
-      background-color: #fff;  /* opsional, biar ada background putih */
+      height: auto;
+      object-fit: contain;
+      background-color: #fff;
+      border-bottom: 1px solid #f0f0f0;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-
     .produk-card img:hover {
       transform: scale(1.05);
     }
-    .btn-wa {
-      display: inline-flex;
-      align-items: center;
-      background: #25d366;
+
+    .price-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--primary);
       color: #fff;
-      border: none;
-      border-radius: 50px;
-      padding: 8px 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 0.8rem;
+    }
+
+    .sold-overlay {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(200,0,0,0.85);
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 12px;
+      border-radius: 8px;
       font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-transform: uppercase;
     }
-    .btn-wa i {
-      margin-right: 6px;
-      font-size: 1.1rem;
-    }
-    .btn-wa:hover {
-      background: #1ebe5b;
-      color: #fff;
-      transform: translateY(-2px);
-    }
+
     .custom-box {
       margin-top: 15px;
       background: #f8f9fa;
@@ -84,68 +152,112 @@
       font-size: 0.85rem;
       text-align: left;
     }
-    .custom-box strong {
-      display: block;
-      margin-bottom: 5px;
-      color: #333;
+
+    /* --- Tombol WhatsApp --- */
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-wa:hover {
+      background: #20b558;
+      transform: translateY(-2px);
+    }
+
+    /* --- Modal --- */
+    .modal-content {
+      border-radius: 15px;
+      background: #111;
     }
     .modal-img {
       width: 100%;
       max-height: 80vh;
       object-fit: contain;
+      transition: transform 0.3s ease;
     }
+    .modal.show .modal-img {
+      transform: scale(1.03);
+    }
+    #previewTitle {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #f8f8f8;
+    }
+
+    /* --- Footer --- */
     footer {
-      background: #222;
-      color: #aaa;
-      padding: 20px 0;
+      background: #111;
+      color: #bbb;
+      padding: 25px 0;
       text-align: center;
-      margin-top: 50px;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* --- Loader --- */
+    .loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .spinner {
+      width: 50px; height: 50px;
+      border: 4px solid #eee;
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
+
 <body>
-  <header class="py-5 text-center">
+  <!-- Loader -->
+  <div id="loader" class="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="py-5 text-center header-hero">
     <div class="container">
-<a href="index.html" class="btn-home">
-  <i class="bi bi-house-door-fill"></i>
-</a>
-
-<style>
-  .btn-home {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: #222;
-    color: #fff;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-    transition: all 0.3s ease;
-    z-index: 1050;
-  }
-  .btn-home:hover {
-    background: #444;
-    transform: scale(1.1);
-  }
-</style>
-
-      <h1 class="fw-bold">🌸 Katalog Kerudung Custom DAFF Studio Creative</h1>
-      <p class="mt-3 text-muted">Temukan <strong>100 desain kerudung custom elegan</strong> dengan kualitas terbaik.  
-        Cocok untuk acara formal, komunitas, hingga sehari-hari.</p>
+      <a href="index.html" class="btn-home"><i class="bi bi-house-door-fill"></i></a>
+      <h1 class="fw-bold display-6">🌸 Katalog Kerudung Custom DAFF Studio Creative</h1>
+      <p class="mt-3 text-muted">
+        Temukan <strong>100 desain kerudung custom elegan</strong> dengan kualitas terbaik.  
+        Cocok untuk acara formal, komunitas, hingga sehari-hari.
+      </p>
     </div>
   </header>
 
+  <!-- Produk -->
   <section class="py-5">
     <div class="container">
-      <div class="row g-4" id="produk-container">
-        <!-- Card akan digenerate oleh JavaScript -->
-      </div>
+      <div id="produk-container"></div>
     </div>
   </section>
 
@@ -161,177 +273,124 @@
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
-      <p>© 2025 DAFF Studio Creative | Katalog Kerudung Custom Bandung & Cimahi</p>
+      <p>© 2025 <strong>DAFF Studio Creative</strong> — Katalog Kerudung Custom Bandung & Cimahi</p>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Tambahkan sebelum script Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js"></script>
 
-<script>
-$(document).ready(function () {
-  const waNumber = "62895401071376"; // nomor WA
-  const produkContainer = $("#produk-container");
-  const previewImage = $("#previewImage");
-  const previewTitle = $("#previewTitle");
+  <script>
+    $(window).on("load", function() {
+      $("#loader").fadeOut(500);
+    });
 
-  let html = "";
+    $(document).ready(function () {
+      const waNumber = "62895401071376";
+      const produkContainer = $("#produk-container");
+      let html = "";
 
-  // --- Tambah 4 produk baru (Bar series) ---
-  const newProducts = [
-    { tipe: "Bar-1", img: "kerudung/bar1.webp" },
-    { tipe: "Bar-2", img: "kerudung/bar2.webp" },
-    { tipe: "Bar-3", img: "kerudung/bar3.webp" },
-    { tipe: "Bar-4", img: "kerudung/bar4.webp" }
-  ];
+      const hargaDeskripsi = `
+        <strong>Ukuran 112</strong><br>
+        1 pcs : Rp 25.000<br>
+        dalam roll : Rp 23.000/pcs (Minimal 300 pcs)<br><br>
+        <strong>Ukuran 125</strong><br>
+        1 pcs : Rp 32.000<br>
+        dalam roll : Rp 29.000/pcs (Minimal 300 pcs)<br>
+        <strong>Berbahan Voal PE</strong>
+      `;
 
-  // Deskripsi ukuran & harga
-  const hargaDeskripsi = `
-    <strong>Ukuran. 112</strong><br>
-    1 pcs : Rp 25.000<br>
-    dalam roll : Rp 23.000/pcs (Minimal 300 pcs)<br><br>
-    <strong>Ukuran. 125</strong><br>
-    1 pcs : Rp 32.000<br>
-    dalam roll : Rp 29.000/pcs (Minimal 300 pcs)
+      // Produk baru
+      const newProducts = [
+        { tipe: "Bar-1", img: "kerudung/bar1.webp" },
+        { tipe: "Bar-2", img: "kerudung/bar2.webp" },
+        { tipe: "Bar-3", img: "kerudung/bar3.webp" },
+        { tipe: "Bar-4", img: "kerudung/bar4.webp" }
+      ];
 
-
-  `;
-
-  newProducts.forEach(prod => {
-    html += `
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <article class="card produk-card h-100 text-center position-relative" 
-                 itemscope itemtype="https://schema.org/Product">
-          <div class="position-relative">
-            <img data-src="${prod.img}" 
-                 alt="Kerudung ${prod.tipe} - DAFF Studio Creative" 
-                 class="lazy"
-                 itemprop="image" 
-                 onclick="showPreview('${prod.img}', '${prod.tipe}')"
-                 style="cursor:pointer;">
-          </div>
-          <div class="card-body">
-            <h2 class="card-title h6" itemprop="name">Kerudung ${prod.tipe}</h2>
-            <a target="_blank" 
-               href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kerudung%20${prod.tipe}" 
-               class="btn-wa">
-              <i class="bi bi-whatsapp"></i> Pesan Langsung
-            </a>
-            <div class="custom-box mt-3" itemprop="description">
-              ${hargaDeskripsi}
+      newProducts.forEach(prod => {
+        html += `
+          <article class="produk-card text-center" itemscope itemtype="https://schema.org/Product">
+            <div class="position-relative">
+              <img data-src="${prod.img}" alt="Kerudung ${prod.tipe}" class="lazy"
+                onclick="showPreview('${prod.img}', '${prod.tipe}')">
+              <span class="price-tag">New</span>
             </div>
-          </div>
-        </article>
-      </div>
-    `;
-  });
-
-  // --- Produk lama (SOLD OUT) ---
-  const totalCards = 100;
-  for (let i = 1; i <= totalCards; i++) {
-    const tipe = "Da-" + (1000 + i);
-    const img = `kerudung/${i}.webp`;
-
-    html += `
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <article class="card produk-card h-100 text-center position-relative" 
-                 itemscope itemtype="https://schema.org/Product">
-          <div class="position-relative">
-            <img data-src="${img}" 
-                 alt="Kerudung ${tipe} - DAFF Studio Creative" 
-                 class="lazy"
-                 itemprop="image" 
-                 onclick="showPreview('${img}', '${tipe}')"
-                 style="cursor:pointer;">
-            <div class="sold-overlay">SOLD OUT</div>
-          </div>
-          <div class="card-body">
-            <h2 class="card-title h6" itemprop="name">Kerudung ${tipe}</h2>
-            <button class="btn btn-secondary w-100" disabled>Sudah Terjual</button>
-            <div class="custom-box mt-3" itemprop="description">
-              ${hargaDeskripsi}
+            <div class="card-body p-3">
+              <h2 class="h6" itemprop="name">Kerudung ${prod.tipe}</h2>
+              <a target="_blank" href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kerudung%20${prod.tipe}" class="btn-wa">
+                <i class="bi bi-whatsapp me-2"></i> Pesan Sekarang
+              </a>
+              <div class="custom-box mt-3" itemprop="description">${hargaDeskripsi}</div>
             </div>
-          </div>
-        </article>
-      </div>
-    `;
-  }
+          </article>
+        `;
+      });
 
-  // Masukkan semua kartu ke kontainer sekaligus (lebih cepat)
-  produkContainer.html(html);
+      // Produk lama (sold out)
+      for (let i = 1; i <= 100; i++) {
+        const tipe = "Da-" + (1000 + i);
+        const img = `kerudung/${i}.webp`;
+        html += `
+          <article class="produk-card text-center" itemscope itemtype="https://schema.org/Product">
+            <div class="position-relative">
+              <img data-src="${img}" alt="Kerudung ${tipe}" class="lazy"
+                onclick="showPreview('${img}', '${tipe}')">
+              <div class="sold-overlay">SOLD OUT</div>
+            </div>
+            <div class="card-body p-3">
+              <h2 class="h6" itemprop="name">Kerudung ${tipe}</h2>
+              <button class="btn btn-secondary w-100" disabled>Sudah Terjual</button>
+              <div class="custom-box mt-3" itemprop="description">${hargaDeskripsi}</div>
+            </div>
+          </article>
+        `;
+      }
 
-  // Lazy load gambar saat mendekati viewport
-  $(".lazy").Lazy();
-});
+      produkContainer.html(html);
+      $(".lazy").Lazy();
+    });
 
-// Fungsi modal preview
-function showPreview(src, tipe) {
-  $("#previewImage").attr("src", src);
-  $("#previewTitle").text("Kerudung " + tipe);
-  const modal = new bootstrap.Modal(document.getElementById("previewModal"));
-  modal.show();
-}
-</script>
+    function showPreview(src, tipe) {
+      $("#previewImage").attr("src", src);
+      $("#previewTitle").text("Kerudung " + tipe);
+      const modal = new bootstrap.Modal(document.getElementById("previewModal"));
+      modal.show();
+    }
+  </script>
 
-
-
-
-
-<style>
-  .sold-overlay {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: rgba(200,0,0,0.85);
-    color: #fff;
-    font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-  }
-</style>
-
-
-
-
-  <!-- Schema.org Structured Data (SEO Google) -->
+  <!-- Schema.org for SEO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
     "@type": "ProductCollection",
     "name": "Katalog Kerudung Custom DAFF Studio Creative",
-    "description": "50 koleksi kerudung custom elegan dengan bahan premium dari DAFF Studio Creative. Bisa custom design sesuai kebutuhan.",
+    "description": "Koleksi kerudung custom elegan berbahan premium dari DAFF Studio Creative. Bisa custom design sesuai kebutuhan.",
     "url": "https://daffdesain.store/kerudung.html",
-    "brand": {
-      "@type": "Brand",
-      "name": "DAFF Studio Creative"
-    },
+    "brand": { "@type": "Brand", "name": "DAFF Studio Creative" },
     "productGroupID": "kerudung-custom",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Kerudung Custom",
-      "itemListElement": [
-        {
-          "@type": "Product",
-          "name": "Kerudung Custom DAFF Studio Creative",
-          "image": "https://daffdesain.store/kerudung/1.png",
-          "description": "Kerudung custom elegan dengan berbagai tipe desain unik.",
-          "brand": "DAFF Studio Creative",
-          "offers": {
-            "@type": "Offer",
-            "url": "https://wa.me/62895401071376",
-            "priceCurrency": "IDR",
-            "price": "350000",
-            "availability": "https://schema.org/InStock"
-          }
+      "itemListElement": [{
+        "@type": "Product",
+        "name": "Kerudung Custom DAFF Studio Creative",
+        "image": "https://daffdesain.store/kerudung/1.webp",
+        "description": "Kerudung custom elegan dengan berbagai tipe desain unik.",
+        "brand": "DAFF Studio Creative",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wa.me/62895401071376",
+          "priceCurrency": "IDR",
+          "price": "350000",
+          "availability": "https://schema.org/InStock"
         }
-      ]
+      }]
     }
   }
   </script>

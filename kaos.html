@@ -1,319 +1,317 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Katalog Kaos Custom Bandung Cimahi - Murah & Premium | DAFF Studio Creative</title>
-  <meta name="description" content="Katalog kaos custom Bandung Cimahi dari DAFF Studio Creative. Tersedia 20+ desain unik, bahan premium, harga murah, bisa custom desain sendiri & pesan langsung via WhatsApp.">
-  <meta name="author" content="DAFF Studio Creative">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Katalog Kaos Custom Bandung Cimahi - Premium & Elegan | DAFF Studio Creative</title>
+  <meta name="description" content="Katalog kaos custom Bandung Cimahi dari DAFF Studio Creative. Tersedia desain elegan, bahan premium, dan bisa custom sesuai keinginan." />
+  <meta name="author" content="DAFF Studio Creative" />
 
   <!-- Open Graph SEO -->
-  <meta property="og:title" content="Katalog Kaos Custom - DAFF Studio Creative">
-  <meta property="og:description" content="Temukan koleksi kaos custom Bandung Cimahi. Bisa desain sendiri, bahan premium, harga terjangkau.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="kaos/1.webp">
-  <meta property="og:url" content="https://daffdesain.store/kaos.html">
-  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:title" content="Katalog Kaos Custom Bandung Cimahi" />
+  <meta property="og:description" content="Desain kaos custom elegan, bahan premium, harga terjangkau. Dapatkan koleksi eksklusif dari DAFF Studio Creative." />
+  <meta property="og:image" content="kaos/1.webp" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://daffdesain.store/kaos.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
 
   <!-- Bootstrap & Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 
   <style>
-    body {
-      background: linear-gradient(to right, #fdfbfb, #ebedee);
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --primary: #007bff;
+      --accent: #25d366;
+      --bg-light: #f7f8fa;
+      --shadow: rgba(0, 0, 0, 0.08);
     }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      font-family: "Playfair Display", serif;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, rgba(0,123,255,0.08), rgba(255,255,255,0.8));
+      backdrop-filter: blur(10px);
+      text-align: center;
+      padding: 90px 20px 70px;
+      box-shadow: 0 4px 20px var(--shadow);
+      position: relative;
+      animation: fadeDown 1s ease;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    header h1 {
+      font-weight: 700;
+      color: #222;
+    }
+    header p {
+      max-width: 700px;
+      margin: 15px auto;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* Tombol Home */
+    .btn-home {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #111;
+      color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: 0.3s ease;
+      z-index: 1050;
+    }
+    .btn-home:hover {
+      background: var(--primary);
+      transform: scale(1.1);
+    }
+
+    /* Grid Produk */
+    #produk-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.8rem;
+      animation: fadeIn 1s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card Produk */
     .produk-card {
       border: none;
       border-radius: 20px;
       overflow: hidden;
-      background: #fff;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 6px 18px var(--shadow);
       transition: all 0.4s ease;
+      position: relative;
     }
     .produk-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
     }
     .produk-card img {
       width: 100%;
-      height: auto;
       object-fit: contain;
-      background-color: #fff;
       cursor: pointer;
+      background-color: #fff;
       transition: transform 0.3s ease;
     }
-    .produk-card img:hover {
-      transform: scale(1.05);
+    .produk-card:hover img { transform: scale(1.04); }
+
+    /* Label SOLD OUT */
+    .sold-label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(220, 0, 0, 0.85);
+      color: #fff;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+
+    /* Tombol WhatsApp */
     .btn-wa {
       display: inline-flex;
       align-items: center;
-      background: #25d366;
+      justify-content: center;
+      background: var(--accent);
       color: #fff;
-      border: none;
       border-radius: 50px;
       padding: 8px 18px;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       text-decoration: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 5px 15px rgba(37,211,102,0.35);
       transition: all 0.3s ease;
     }
-    .btn-wa i {
-      margin-right: 6px;
-      font-size: 1.1rem;
-    }
     .btn-wa:hover {
-      background: #1ebe5b;
-      color: #fff;
+      background: #20b558;
       transform: translateY(-2px);
     }
+
+    /* Deskripsi Produk */
     .custom-box {
       margin-top: 15px;
-      background: #f8f9fa;
+      background: #f9fafb;
       padding: 12px;
       border-radius: 10px;
+      border: 1px solid #eee;
       font-size: 0.85rem;
+      color: #555;
       text-align: left;
     }
     .custom-box strong {
+      color: #111;
       display: block;
       margin-bottom: 5px;
-      color: #333;
+    }
+
+    /* Modal */
+    .modal-content {
+      border-radius: 15px;
+      background: rgba(10, 10, 10, 0.95);
+      border: none;
     }
     .modal-img {
       width: 100%;
       max-height: 80vh;
       object-fit: contain;
     }
+    .modal.show .modal-img {
+      transform: scale(1.03);
+      transition: 0.3s ease;
+    }
+
+    /* Footer */
     footer {
-      background: #222;
-      color: #aaa;
-      padding: 20px 0;
+      background: #111;
+      color: #ccc;
+      padding: 25px 0;
       text-align: center;
-      margin-top: 50px;
+      font-size: 0.9rem;
+      margin-top: 60px;
     }
-    .btn-home {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: #222;
-      color: #fff;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-      transition: all 0.3s ease;
-      z-index: 1050;
-    }
-    .btn-home:hover {
-      background: #444;
-      transform: scale(1.1);
+    footer strong { color: var(--primary); }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
-  <header class="py-5 text-center">
-    <div class="container">
-      <a href="index.html" class="btn-home"><i class="bi bi-house-door-fill"></i></a>
-      <h1 class="fw-bold">👕 Katalog Kaos Custom DAFF Studio Creative</h1>
-      <p class="mt-3 text-muted">
-        Temukan <strong>20 desain kaos custom premium</strong> dengan kualitas terbaik.  
-        Cocok untuk komunitas, event, brand lokal, hingga kebutuhan sehari-hari.
-      </p>
-    </div>
+  <a href="index.html" class="btn-home"><i class="bi bi-house-door-fill"></i></a>
+
+  <header>
+    <h1>👕 Katalog Kaos Custom DAFF Studio Creative</h1>
+    <p>Temukan <strong>20+ desain kaos custom premium</strong> dengan bahan terbaik.<br>Cocok untuk komunitas, brand lokal, dan kebutuhan event.</p>
   </header>
 
   <section class="py-5">
     <div class="container">
-      <div class="row g-4" id="produk-container"></div>
+      <div id="produk-container"></div>
     </div>
   </section>
 
   <!-- Modal Preview -->
   <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content bg-dark">
+      <div class="modal-content">
         <div class="modal-body text-center p-0">
-          <img id="previewImage" src="" alt="Preview Kaos Custom" class="modal-img">
+          <img id="previewImage" src="" alt="Preview Kaos Custom" class="modal-img" />
           <h5 class="text-white mt-3" id="previewTitle"></h5>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>© 2025 DAFF Studio Creative | Katalog Kaos Custom Bandung & Cimahi</p>
-    </div>
+    <p>© 2025 <strong>DAFF Studio Creative</strong> | Kaos Custom Bandung & Cimahi</p>
   </footer>
 
-  <!-- Bootstrap JS -->
+  <!-- Script -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Tambahkan sebelum script Bootstrap -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js"></script>
 
-<script>
-$(document).ready(function () {
-  const waNumber = "62895401071376"; // nomor WA
-  const produkContainer = $("#produk-container");
-  let html = "";
+  <script>
+    $(document).ready(function () {
+      const waNumber = "62895401071376";
+      const produkContainer = $("#produk-container");
+      let html = "";
 
-  // --- Produk yang SOLD OUT (ditampilkan dulu di atas) ---
-  for (let i = 1; i <= 13; i++) {
-    const tipe = "Kaos-S" + i;
-    const img = `kaos/s${i}.webp`;
-
-    html += `
-      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <article class="card produk-card h-100 text-center position-relative sold-out">
-          <div class="position-relative">
-            <span class="sold-label">SOLD OUT</span>
-            <img data-src="${img}" 
-                 alt="${tipe} (SOLD OUT) Bandung Cimahi - DAFF Studio Creative"
-                 class="lazy img-fluid"
-                 style="cursor:not-allowed;">
-          </div>
-          <div class="card-body">
-            <h2 class="card-title h6 text-danger">${tipe} (Sold Out)</h2>
-            <a class="btn btn-success btn-sm disabled-btn">
-              <i class="bi bi-whatsapp"></i> Pesan Langsung
-            </a>
-            <div class="custom-box mt-3 text-muted">
-              <strong>Produk Habis</strong><br>
-              Stok habis, tidak dapat dipesan saat ini.
+      // Produk SOLD OUT
+      for (let i = 1; i <= 13; i++) {
+        const tipe = "Kaos-S" + i;
+        const img = `kaos/s${i}.webp`;
+        html += `
+          <article class="produk-card text-center">
+            <div class="position-relative">
+              <span class="sold-label">SOLD OUT</span>
+              <img data-src="${img}" alt="${tipe} (Sold Out)" class="lazy img-fluid" style="cursor:not-allowed;">
             </div>
-          </div>
-        </article>
-      </div>
-    `;
-  }
-
-  // --- Produk yang tersedia (ditampilkan setelah SOLD OUT) ---
-  for (let i = 1; i <= 20; i++) {
-    const tipe = "Kaos-" + i;
-    const img = `kaos/${i}.webp`;
-
-    html += `
-      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-        <article class="card produk-card h-100 text-center position-relative">
-          <div class="position-relative">
-            <img data-src="${img}" 
-                 alt="Kaos Custom ${tipe} Bandung Cimahi - DAFF Studio Creative"
-                 class="lazy img-fluid"
-                 onclick="showPreview('${img}', '${tipe}')"
-                 style="cursor:pointer;">
-          </div>
-          <div class="card-body">
-            <h2 class="card-title h6">Kaos Custom Tipe ${tipe}</h2>
-            <a target="_blank" 
-               href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kaos%20Custom%20Tipe%20${tipe}" 
-               class="btn btn-success btn-sm btn-wa">
-              <i class="bi bi-whatsapp"></i> Pesan Langsung
-            </a>
-            <div class="custom-box mt-3">
-              <strong>Custom Design</strong><br>
-              Bisa pilih bahan & warna.<br>
-              Harga mulai Rp. 75.000 dengan bahan combat<br>
-              Diskon khusus order komunitas.<br>
-              Free desain jika order minimal 12 pcs.
+            <div class="card-body p-3">
+              <h2 class="h6 text-danger">${tipe} (Habis)</h2>
+              <button class="btn btn-secondary btn-sm w-100" disabled>Stok Habis</button>
+              <div class="custom-box mt-3">Stok sementara habis. Silakan hubungi kami untuk pre-order.</div>
             </div>
-          </div>
-        </article>
-      </div>
-    `;
-  }
+          </article>
+        `;
+      }
 
-  // --- Tampilkan semua produk di container ---
-  produkContainer.html(html);
+      // Produk Ready
+      for (let i = 1; i <= 20; i++) {
+        const tipe = "Kaos-" + i;
+        const img = `kaos/${i}.webp`;
+        html += `
+          <article class="produk-card text-center">
+            <div class="position-relative">
+              <img data-src="${img}" alt="Kaos Custom ${tipe}" class="lazy img-fluid" onclick="showPreview('${img}', '${tipe}')">
+            </div>
+            <div class="card-body p-3">
+              <h2 class="h6">Kaos Custom ${tipe}</h2>
+              <a target="_blank" href="https://wa.me/${waNumber}?text=Halo,%20saya%20ingin%20pesan%20Kaos%20Custom%20Tipe%20${tipe}" class="btn-wa mt-2">
+                <i class="bi bi-whatsapp me-1"></i> Pesan Langsung
+              </a>
+              <div class="custom-box mt-3">
+                <strong>Spesifikasi:</strong>
+                Bisa pilih bahan & warna.<br>
+                Harga mulai Rp75.000 (bahan combat).<br>
+                Diskon untuk order komunitas.<br>
+                Free desain untuk minimal 12 pcs.
+              </div>
+            </div>
+          </article>
+        `;
+      }
 
-  // --- Aktifkan lazy load ---
-  $(".lazy").Lazy();
-});
+      produkContainer.html(html);
+      $(".lazy").Lazy();
+    });
 
-// --- Preview Modal ---
-function showPreview(src, tipe) {
-  // Jangan tampilkan modal untuk gambar SOLD
-  if (src.includes("s")) return;
-
-  $("#previewImage").attr("src", src);
-  $("#previewTitle").text("Kaos Custom " + tipe);
-  const modal = new bootstrap.Modal(document.getElementById("previewModal"));
-  modal.show();
-}
-</script>
-
-
-<style type="text/css">
-  
-.sold-label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: red;
-  color: white;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  z-index: 10;
-}
-
-.disabled-btn {
-  pointer-events: none;
-  cursor: not-allowed;
-  opacity: 1 !important; /* tetap normal */
-}
-
-
-</style>
-
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org/",
-    "@type": "ProductCollection",
-    "name": "Katalog Kaos Custom DAFF Studio Creative",
-    "description": "20 koleksi kaos custom premium Bandung Cimahi. Bisa desain sendiri, cocok untuk komunitas, event, dan brand lokal.",
-    "url": "https://daffdesain.store/kaos.html",
-    "brand": {
-      "@type": "Brand",
-      "name": "DAFF Studio Creative"
-    },
-    "productGroupID": "kaos-custom",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Kaos Custom Bandung Cimahi",
-      "itemListElement": [
-        {
-          "@type": "Product",
-          "name": "Kaos Custom Premium Bandung Cimahi",
-          "image": "https://daffdesain.store/kaos/1.webp",
-          "description": "Kaos custom elegan dengan desain eksklusif dan bahan premium.",
-          "brand": "DAFF Studio Creative",
-          "offers": {
-            "@type": "Offer",
-            "url": "https://wa.me/62895401071376",
-            "priceCurrency": "IDR",
-            "price": "85000",
-            "availability": "https://schema.org/InStock"
-          }
-        }
-      ]
+    function showPreview(src, tipe) {
+      if (src.includes("s")) return;
+      $("#previewImage").attr("src", src);
+      $("#previewTitle").text("Kaos Custom " + tipe);
+      const modal = new bootstrap.Modal(document.getElementById("previewModal"));
+      modal.show();
     }
-  }
   </script>
 </body>
 </html>
