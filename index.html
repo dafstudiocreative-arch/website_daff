@@ -247,11 +247,11 @@ gtag('config', 'AW-16867417010');
         
         <!-- Card 1 -->
         <div class="swiper-slide">
-          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
+          <div class="card produk-card bg-dark border-0">
             <img src="images/hijab.webp" class="card-img-top" alt="Kerudung Custom Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title text-white">Kerudung</h5>
-              <p class="card-text text-light">Desain kerudung custom.</p>
+              <h5 class="card-title text-gold">Kerudung</h5>
+              <p class="card-text">Desain kerudung custom.</p>
               <a href="kerudung.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
@@ -259,11 +259,11 @@ gtag('config', 'AW-16867417010');
 
         <!-- Card 2 -->
         <div class="swiper-slide">
-          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
+          <div class="card produk-card bg-dark border-0">
             <img src="images/batik.webp" class="card-img-top" alt="Batik Custom Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title text-white">Batik</h5>
-              <p class="card-text text-light">Batik custom .</p>
+              <h5 class="card-title text-gold">Batik</h5>
+              <p class="card-text">Batik custom elegan.</p>
               <a href="batik.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
@@ -271,11 +271,11 @@ gtag('config', 'AW-16867417010');
 
         <!-- Card 3 -->
         <div class="swiper-slide">
-          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
-            <img src="images/dasterr.webp" class="card-img-top" alt="Daster Nyaman Bandung Cimahi" loading="lazy">
+          <div class="card produk-card bg-dark border-0">
+            <img src="images/dasterr.webp" class="card-img-top" alt="Daster Custom Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title text-white">Daster</h5>
-              <p class="card-text text-light">Desain Daster Custom.</p>
+              <h5 class="card-title text-gold">Daster</h5>
+              <p class="card-text">Desain daster custom.</p>
               <a href="daster.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
@@ -283,281 +283,187 @@ gtag('config', 'AW-16867417010');
 
         <!-- Card 4 -->
         <div class="swiper-slide">
-          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
+          <div class="card produk-card bg-dark border-0">
             <img src="images/kaos.webp" class="card-img-top" alt="Kaos Custom Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title text-white">Kaos</h5>
-              <p class="card-text text-light">Desain Kaos custom.</p>
+              <h5 class="card-title text-gold">Kaos</h5>
+              <p class="card-text">Desain kaos custom.</p>
               <a href="kaos.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
         </div>
 
-                <div class="swiper-slide">
-          <div class="card produk-card h-100 bg-dark border-0 shadow-sm">
-            <img src="images/sarung.webp" class="card-img-top" alt="Kaos Custom Bandung Cimahi" loading="lazy">
+        <!-- Card 5 -->
+        <div class="swiper-slide">
+          <div class="card produk-card bg-dark border-0">
+            <img src="images/sarung.webp" class="card-img-top" alt="Sarung Custom Bandung Cimahi" loading="lazy">
             <div class="card-body text-center">
-              <h5 class="card-title text-white">Sarung</h5>
-              <p class="card-text text-light">Desain Sarung custom.</p>
+              <h5 class="card-title text-gold">Sarung</h5>
+              <p class="card-text">Desain sarung custom.</p>
               <a href="sarung.html" class="btn btn-gold">Lihat Detail</a>
             </div>
           </div>
         </div>
-
       </div>
 
-      <!-- Indicator Geser (Hanya muncul di mobile) -->
-      <div class="swipe-indicator d-md-none">
-        <span>⬅️ Geser untuk lihat produk ➡️</span>
+      <!-- Tombol Navigasi -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+      <!-- Indikator Geser (Selalu muncul) -->
+      <div class="swipe-indicator mt-3">
+        ⬅️ Geser untuk lihat produk ➡️
       </div>
     </div>
-
-    <!-- Tombol Download -->
   </div>
 </section>
 
 <style>
+/* =============================== */
+/* === TEMA DASAR DARK ELEGANT === */
+/* =============================== */
+.bg-dark { background-color: #121212 !important; }
+.text-gold { color: #f1c40f !important; }
+.card-text { color: #ddd !important; }
 
-  
- /* CSS Dasar (Tetap Sama) */
-.bg-dark {
-  background-color: #121212 !important;
-}
 .btn-gold {
   background: linear-gradient(45deg, #d4af37, #f1c40f);
   color: #000;
   font-weight: 600;
   border-radius: 50px;
+  padding: 8px 20px;
   transition: 0.3s ease-in-out;
+  border: none;
+  box-shadow: 0 4px 10px rgba(241,196,15,0.3);
 }
 .btn-gold:hover {
   background: linear-gradient(45deg, #f1c40f, #d4af37);
-  transform: scale(1.05);
-}
-.text-gold {
-  color: #f1c40f;
-}
-.card-text {
-  color: #ddd !important;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(241,196,15,0.45);
 }
 
-/* Indicator geser (Tetap Sama) */
-.swipe-indicator {
-  text-align: center;
-  color: #f1c40f;
-  font-size: 14px;
-  margin-top: 12px;
-  animation: swipeHint 1.5s infinite;
-}
-
-@keyframes swipeHint {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.3; }
-}
-
-/* Perbaikan untuk Gambar: Tampilkan Full Tanpa Potong Atas/Bawah */
-.produk-card .card-img-top {
-  width: 100%; /* Full width card */
-  height: auto !important; /* Biarkan height natural berdasarkan proporsi gambar, hindari fixed height */
-  max-height: none !important; /* Hilangkan batas height maksimal */
-  object-fit: contain; /* Tampilkan gambar penuh tanpa crop (contain menjaga rasio, tidak potong) */
-  object-position: center; /* Pusatkan gambar jika ada ruang kosong */
-  display: block; /* Pastikan block-level untuk full width */
-  border-radius: 0; /* Hilangkan border radius jika mengganggu, atau sesuaikan */
-}
-
-/* Optimasi Card Secara Umum untuk Hindari Crop */
-.produk-card {
-  height: auto !important; /* Hilangkan h-100 agar card menyesuaikan konten, bukan sebaliknya */
-  display: flex;
-  flex-direction: column;
-}
-
-.produk-card .card-body {
-  flex-grow: 1; /* Biarkan body expand jika perlu, tapi gambar tetap prioritas */
-  padding: 1rem;
-}
-
-/* Mobile-Specific: Pastikan Gambar Full di Layar Kecil */
-@media (max-width: 768px) {
-  .produk-card .card-img-top {
-    height: auto !important; /* Tekankan auto height di mobile */
-    min-height: 150px; /* Minimal height agar tidak terlalu kecil, tapi tetap proporsional */
-    object-fit: contain; /* Prioritaskan contain untuk hindari potong vertikal */
-  }
-
-  .swiper-slide .produk-card {
-    margin: 0 0.5rem; /* Jarak antar cards di swiper mobile */
-    height: auto !important; /* Pastikan slide tidak fixed height */
-  }
-
-  .swiper-wrapper {
-    align-items: flex-start; /* Align cards ke atas, biarkan height variabel */
-  }
-
-  /* Jika gambar masih terpotong karena swiper, tambah ruang */
-  .swiper.mySwiper {
-    padding: 1rem 0; /* Padding atas/bawah swiper untuk gambar bernapas */
-  }
-}
-
-/* Untuk Layar Sangat Kecil (Extra Responsif) */
-@media (max-width: 480px) {
-  .produk-card .card-img-top {
-    min-height: 120px; /* Lebih kecil tapi tetap visible */
-  }
-
-  .produk-card .card-body {
-    padding: 0.75rem; /* Kurangi padding body agar gambar dominan */
-    font-size: 0.9rem; /* Teks lebih kecil untuk hemat ruang */
-  }
-}
-
-</style>
-
-
-
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 25,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      768: {
-        slidesPerView: 2
-      },
-      992: {
-        slidesPerView: 4
-      }
-    }
-  });
-</script>
-
-<style>
-/* === Katalog Produk (Dark Elegant) === */
+/* =============================== */
+/* === DESAIN KATALOG PRODUK ==== */
+/* =============================== */
 .katalog_section {
-  background: #000 !important;
+  background: #000;
   padding: 80px 0;
   color: #f1f1f1;
 }
 
 .katalog_section h2 {
   font-weight: 800;
-  color: #f1c40f; /* emas elegan */
+  color: #f1c40f;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.katalog_section p {
-  color: #ccc;
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-/* === Kartu Produk === */
+/* Card Produk */
 .produk-card {
-  border: 1px solid rgba(212,175,55,0.1);
   border-radius: 16px;
   overflow: hidden;
-  background: #111;
+  background: #1a1a1a;
   transition: all 0.4s ease;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
-
 .produk-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(241,196,15,0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(241,196,15,0.25);
 }
 
-/* Gambar Produk */
-.produk-card img {
-  height: 220px;
+/* Gambar produk seragam */
+.produk-card .card-img-top {
   width: 100%;
-  object-fit: cover;
-  border-bottom: 2px solid #d4af37;
-  filter: brightness(0.9);
-  transition: filter 0.3s ease;
+  height: 220px;
+  object-fit: contain;
+  background: #111;
+  padding: 10px;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
+.produk-card:hover .card-img-top {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
-.produk-card:hover img {
-  filter: brightness(1.05);
+/* Teks */
+.produk-card .card-body {
+  padding: 1rem;
 }
-
-/* === Teks Kartu === */
 .produk-card .card-title {
   font-weight: 700;
-  color: #f1c40f;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
-
 .produk-card .card-text {
   font-size: 0.95rem;
-  color: #ddd;
-  min-height: 50px;
+  min-height: 40px;
 }
 
-/* === Tombol Custom Emas === */
-.btn-custom {
-  display: inline-block;
-  background: linear-gradient(135deg, #f1c40f, #d4af37);
-  color: #000;
-  font-weight: 700;
-  padding: 8px 20px;
-  border-radius: 30px;
-  border: none;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-custom:hover {
-  background: linear-gradient(135deg, #d4af37, #f1c40f);
-  box-shadow: 0 0 20px rgba(241,196,15,0.4);
-  transform: translateY(-3px) scale(1.05);
-}
-
-/* === Navigasi Swiper === */
-.custom-nav {
+/* Indikator Geser — selalu tampil */
+.swipe-indicator {
+  text-align: center;
   color: #f1c40f;
+  font-size: 15px;
+  font-weight: 500;
+  animation: swipeHint 1.8s infinite;
+  user-select: none;
+  opacity: 0.9;
+}
+@keyframes swipeHint {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* Navigasi Panah Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  color: #f1c40f !important;
   transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  color: #fff !important;
+  transform: scale(1.2);
 }
 
-.custom-nav:hover {
-  color: #ffd700;
-  transform: scale(1.15);
-}
-
-/* Swiper pagination */
+/* Pagination Bullets */
 .swiper-pagination-bullet {
   background: #f1c40f;
   opacity: 0.4;
 }
-
 .swiper-pagination-bullet-active {
   background: #ffd700;
   opacity: 1;
 }
 
-/* === Responsif === */
+/* Responsif */
 @media (max-width: 768px) {
-  .katalog_section {
-    padding: 60px 0;
-  }
-  .produk-card img {
+  .produk-card .card-img-top {
     height: 180px;
   }
 }
 </style>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1.2,
+    spaceBetween: 25,
+    grabCursor: true,
+    loop: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      992: { slidesPerView: 3 },
+      1200: { slidesPerView: 4 },
+    },
+  });
+</script>
 
 
 
